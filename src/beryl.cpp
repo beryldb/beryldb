@@ -133,7 +133,7 @@ Beryl::Beryl(int argc, char** argv) : ConfigFile(DEFAULT_CONFIG), Ready(false)
 		this->Exit(EXIT_CODE_CONFIG);
 	}
 
-        Kernel->Initialize();
+        this->Initialize();
 }
 
 void Beryl::Initialize()
@@ -203,7 +203,7 @@ void Beryl::Initialize()
 
 	/* User that acts as a server. */
 	
-	this->Clients->Global = new GlobalUser(Kernel->Config->sid, Kernel->Config->ServerName);
+	this->Clients->Global = new GlobalUser(this->Config->sid, this->Config->ServerName);
 
 	/* We are ready to start listening for connections. */
 	
@@ -317,7 +317,7 @@ void Beryl::Loop()
 {
         /* Flushes pending commands. */
 
-        Kernel->Commander->Queue->Flush();
+        this->Commander->Queue->Flush();
 
         /*
          * Our socket pool needs to actively await for data in active file descriptors.
@@ -426,7 +426,7 @@ void Beryl::PrepareExit(int status, const std::string& quitmsg)
 	
 	/* One last flush. */
 	
-        Kernel->Notify->Flush();
+        this->Notify->Flush();
 
         /* Remove pending queues. */
         

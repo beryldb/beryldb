@@ -27,7 +27,7 @@ class ExportAPI UIDHandler : public safecast<UIDHandler>
 
  public:
 	
-	static const unsigned int UUID_LIMIT = 20;
+	static const unsigned int UUID_LIMIT = 9;
 
 	/* Initializes UID handler. */
 	

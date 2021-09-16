@@ -713,8 +713,9 @@ void Dispatcher::VectorFlush(bool comillas, const std::string& title, QueryBase*
         if (query->subresult == 1)
         {
                 Dispatcher::JustAPI(query->user, BRLD_START_LIST);
-                Dispatcher::JustEmerald(query->user, BRLD_START_LIST, Daemon::Format("%-30s", title.c_str()));
-                Dispatcher::JustEmerald(query->user, BRLD_START_LIST, Daemon::Format("%-30s", Dispatcher::Repeat("―", 30).c_str()));
+                
+                Dispatcher::JustEmerald(query->user, BRLD_START_LIST, Daemon::Format("%-30s ", title.c_str()));
+                Dispatcher::JustEmerald(query->user, BRLD_START_LIST, Daemon::Format(" %-30s", Dispatcher::Repeat("―", 10).c_str()));
                 
                 if (query->VecData.empty())
                 {
@@ -752,7 +753,7 @@ void Dispatcher::MMapFlush(bool comillas, const std::string& title, const std::s
         {
                 Dispatcher::JustAPI(query->user, BRLD_START_LIST);
                 Dispatcher::JustEmerald(query->user, BRLD_START_LIST, Daemon::Format("%-30s | %-10s", title.c_str(), subtitle.c_str()));
-                Dispatcher::JustEmerald(query->user, BRLD_START_LIST, Daemon::Format("%-30s | %-10s", Dispatcher::Repeat("―", 30).c_str(), Dispatcher::Repeat("―", 10).c_str()));
+                Dispatcher::JustEmerald(query->user, BRLD_START_LIST, Daemon::Format("%-30s | %-10s", Dispatcher::Repeat("―", 30).c_str(), Dispatcher::Repeat("―", 30).c_str()));
 
                if (query->mmap.empty())
                {
