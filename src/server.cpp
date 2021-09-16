@@ -209,7 +209,7 @@ std::string UIDHandler::Create()
 
 	for (std::string::const_iterator i = servername.begin(); i != servername.end(); ++i)
 	{
-		sid = 9 * sid + *i;
+		sid = 5 * sid + *i;
 	}
 	
 	for (unsigned int i = 0; i < Kernel->Engine->generate_random_int(100); i++)
