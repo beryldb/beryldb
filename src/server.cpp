@@ -224,7 +224,6 @@ std::string UIDHandler::Create()
 
 void UIDHandler::FindNext(unsigned int pos)
 {
-
 	if (LastUID[pos] == 'Z')
 	{
 		LastUID[pos] = '0';
@@ -233,7 +232,7 @@ void UIDHandler::FindNext(unsigned int pos)
 	{
 		LastUID[pos] = 'A';
 
-		if (pos == 4)
+		if (pos == 3)
 		{
 			return;
 		}
