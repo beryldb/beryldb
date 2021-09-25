@@ -26,7 +26,7 @@ are problem solvers and welcome people having this vision 👍
  - 🎓 Check our pending issues, or create your own.
  - 🌵 Contribute to our APIs (JS, [PHP](https://github.com/beryldb/php-beryl), Python).
  - 🙋 Become a QA: Test our software and report back ([Check our Google group](https://groups.google.com/g/beryldb)).
- - 💬 Get Involved and join our [Discord server](https://discord.gg/H6HVxeDq).
+ - 💬 Get Involved and join our [Discord server](https://discord.gg/GRCEuMdYRt).
 
 ![Logo](https://docs.beryl.dev/img/smaller.png??)
 
@@ -237,7 +237,7 @@ BSD license.
 
 * [Documentation](https://docs.beryl.dev)
 * [GitHub](https://github.com/beryldb/beryldb)
-* [Support/Discord](https://discord.gg/H6HVxeDq)
+* [Support/Discord](https://discord.gg/GRCEuMdYRt)
 * [Twitter](https://twitter.com/beryldb)
 
 
