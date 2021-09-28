@@ -51,12 +51,12 @@ class ExportAPI GroupManager
          * 
          * @parameters:
 	 *
-	 *         · string: Group name to find.
+	 *         · string	: Group name to find.
 	 * 
          * @return:
  	 *
-         *         · shared_ptr<Group>: Group pointer, returns NULL if not 
-         *                              found.
+         *         · Group	: Group pointer, returns NULL if not 
+         *                        found.
          */             
          
          std::shared_ptr<Group> Find(const std::string& name);
@@ -66,7 +66,7 @@ class ExportAPI GroupManager
          * 
          * @parameters:
 	 *
-	 *         · name: Name to add.
+	 *         · string	: Name to add.
 	 * 
          * @return:
  	 *
@@ -81,12 +81,14 @@ class ExportAPI GroupManager
          * 
          * @parameters:
 	 *
-	 *         · name: Name of group to reset.
+	 *         · string	: Name of group to reset.
 	 * 
          * @return:
  	 *
-         *         · True: Flags updated.
-         *         · False: Unable to update.
+         *        · boolean
+         *
+         *          - True	: Flags updated.
+         *          - False     : Unable to update.
          */    
          
          bool ResetFlags(const std::string& name);
@@ -96,7 +98,7 @@ class ExportAPI GroupManager
          * 
          * @return:
  	 *
-         *         · GroupMap: Groups.
+         *         · GroupMap    : Groups.
          */             
          
          GroupMap& GetList()
@@ -168,11 +170,11 @@ class ExportAPI Group
          * 
          * @parameters:
 	 *
-	 *         · flag: Flag to append.
+	 *         · string	: Flag to append.
 	 * 
          * @return:
  	 *
-         *         · True: Updated successfuly.
+         *         · True       : Updated successfuly.
          */    
          
          bool UpdateFlags(const std::string& flags);
@@ -192,12 +194,12 @@ class ExportAPI Group
          * 
          * @parameters:
 	 *
-	 *         · flag: Flag to check.
+	 *         · char	: Flag to check.
 	 * 
          * @return:
  	 *
-         *         · True: Can be executed.
-         *         · False: Unable to execute.
+         *         · True	: Can be executed.
+         *         · False	: Unable to execute.
          */    
          
          bool CanDo(unsigned char flag);
@@ -220,7 +222,7 @@ class ExportAPI Group
          * 
          * @return:
  	 *
-         *         · string: Current name.
+         *         · string	: Current name.
          */             
          
          std::string GetName()
