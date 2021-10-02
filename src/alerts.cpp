@@ -155,7 +155,8 @@ void MonitorHandler::Flush()
                              }
     
                              std::string sfinal(fullparams.str());
-                             Dispatcher::SmartDiv(user, BRLD_MONITOR, flushing.instance, Daemon::Format("%s %s", flushing.command.c_str(), sfinal.c_str()).c_str(), ":");
+                             
+                             user->SendProtocol(BRLD_MONITOR, Daemon::Format("%s", Daemon::Format("%s %s %s", flushing.instance.c_str(), flushing.command.c_str(), sfinal.c_str()).c_str()));
                       }
         }     
                

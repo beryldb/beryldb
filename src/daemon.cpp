@@ -715,7 +715,7 @@ void Dispatcher::VectorFlush(bool comillas, const std::string& title, QueryBase*
                 Dispatcher::JustAPI(query->user, BRLD_START_LIST);
                 
                 Dispatcher::JustEmerald(query->user, BRLD_START_LIST, Daemon::Format("%-30s ", title.c_str()));
-                Dispatcher::JustEmerald(query->user, BRLD_START_LIST, Daemon::Format(" %-30s", Dispatcher::Repeat("―", 10).c_str()));
+                Dispatcher::JustEmerald(query->user, BRLD_START_LIST, Daemon::Format("%-30s", Dispatcher::Repeat("―", 10).c_str()));
                 
                 if (query->VecData.empty())
                 {
