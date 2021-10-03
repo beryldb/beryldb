@@ -470,7 +470,7 @@ void vget_query::Process()
                return;
         }
 
-        Dispatcher::VectorFlush(true, "Vector", this);
+        Dispatcher::VectorFlush(true, this->key, this);
 }
 
 void vcount_query::Run()
