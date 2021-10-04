@@ -155,7 +155,7 @@ void MonitorHandler::Flush()
                              }
     
                              std::string sfinal(fullparams.str());
-                             
+    
                              user->SendProtocol(BRLD_MONITOR, Daemon::Format("%s", Daemon::Format("%s %s %s", flushing.instance.c_str(), flushing.command.c_str(), sfinal.c_str()).c_str()));
                       }
         }     
