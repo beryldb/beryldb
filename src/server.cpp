@@ -18,7 +18,6 @@
 #include "colors.h"
 #include "devel.h"
 #include "testoffice.h"
-#include "interval.h"
 #include "engine.h"
 
 void Beryl::CheckOffice()
@@ -165,8 +164,6 @@ void Beryl::Detach()
 
 void Beryl::SignalManager(int signal)
 {
-	Kernel->Interval->SleepMode(false);
-
 	falert(NOTIFY_DEBUG, "Signal received: %s.", convto_string(signal).c_str());
 
 	if (signal == SIGTERM)

@@ -210,10 +210,6 @@ class ExportAPI Beryl
 
         std::unique_ptr<ChannelManager> Channels;
         
-	/* Handles intervals */
-	
-	std::unique_ptr<IntervalManager> Interval;
-
         /* Utils function to the Beryl class. */
 
         std::unique_ptr<Daemon> Engine;

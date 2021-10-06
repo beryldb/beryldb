@@ -90,10 +90,6 @@ Beryl::Beryl(int argc, char** argv) : ConfigFile(DEFAULT_CONFIG), Ready(false)
         
         this->Groups 		= 	std::make_unique<GroupManager>();
 
-        /* Manages intervals */
-        
-        this->Interval 		= 	std::make_unique<IntervalManager>();
-
 	/* Configuration class. This class will read and our config file. */
 	
 	this->Config 		= 	std::make_unique<Configuration>();
@@ -360,8 +356,6 @@ void Beryl::Timed(time_t current)
         
         if ((current % 2) == 0)
         {
-	           this->Interval->Flush();
-	           
 	           /* Forces the exit of users with quitting status. */
 	           
 	           this->Clients->ForceExits();
@@ -590,7 +584,6 @@ void Beryl::PrepareExit(int status, const std::string& quitmsg)
         this->Channels    =     NULL;
         this->Config      =     NULL;
         this->Sets	  =	NULL;
-        this->Interval	  = 	NULL;
         this->Engine	  =	NULL;
         this->Stats	  = 	NULL;
         
