@@ -47,7 +47,6 @@ class CommandQueue;
 class Group;
 class GroupManager;
 class MonitorHandler;
-class IntervalManager;
 class Daemon;
 class Serverstats;
 

@@ -15,7 +15,6 @@
 #include "managers/user.h"
 #include "extras.h"
 #include "engine.h"
-#include "interval.h"
 #include "maker.h"
 
 bool Daemon::PassCompare(Expandable* ex, const std::string& data, const std::string& input, const std::string& hashtype)
@@ -657,13 +656,11 @@ void CommandQueue::Flush()
 
 	       	      PendingCMD m_event = user->PendingMulti.front();
 	       	      Kernel->Commander->Execute(user, m_event.command, m_event.cmd_params);
-	              Kernel->Interval->Incr();
 	              user->PendingMulti.pop_front();
 	              continue;
 	        }
                
 	       user->PendingList.pop_front();
                Kernel->Commander->Execute(user, event.command, event.cmd_params);
-               Kernel->Interval->Incr();
         }
 }
