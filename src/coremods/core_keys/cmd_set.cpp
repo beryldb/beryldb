@@ -67,7 +67,7 @@ CommandSetTX::CommandSetTX(Module* Creator) : Command(Creator, "SETTX", 2, 2)
 {
        check_value      =       true;
        check_key        =    	0;
-       groups 		= 	{ 'e', 'k' };
+       group 		= 	'k';
        syntax 		= 	"<key> \"value\"";
 }
 

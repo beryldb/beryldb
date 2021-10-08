@@ -75,7 +75,14 @@ void type_query::Run()
 
 void type_query::Process()
 {
-       user->SendProtocol(BRLD_OK, Helpers::TypeString(this->identified));
+       if (this->identified != PROCESS_NULL)
+       {
+            user->SendProtocol(BRLD_OK, Helpers::TypeString(this->identified));
+       }
+       else
+       {
+            user->SendProtocol(ERR_INPUT, NOT_FOUND);
+       }
 }
 
 void op_query::Run()
@@ -381,15 +388,20 @@ void list_query::Process()
 {
         Dispatcher::JustAPI(user, BRLD_START_LIST);
         
+        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-16s+%-29s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 30).c_str()));
+        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("| %-16s| %-29s|", "Type", "Count"));
+        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-16s+%-29s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 30).c_str()));
+
         for (std::map<std::string, unsigned int>::iterator i = this->nmap.begin(); i != this->nmap.end(); ++i)
         {
-                 std::string ikey = Helpers::TypeString(i->first, true);
+                 std::string ikey  = Helpers::TypeString(i->first, true);
                  unsigned int item = i->second;
 
-                 user->SendProtocol(BRLD_ITEM, Daemon::Format("%-9s | %2s ", ikey.c_str(), convto_string(item).c_str()));
+                 Dispatcher::ListDepend(user, BRLD_USER_ITEM, Daemon::Format("| %-16s| %-29s|", ikey.c_str(), convto_string(item).c_str()), Daemon::Format("%s %s", ikey.c_str(), convto_string(item).c_str()));
         }
         
         Dispatcher::JustAPI(user, BRLD_END_LIST);
+        Dispatcher::JustEmerald(user, BRLD_END_LIST, Daemon::Format("+%-16s+%-29s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 30).c_str()));
 }
 
 void total_query::Run()
@@ -532,13 +544,18 @@ void glist_query::Process()
 {
         Dispatcher::JustAPI(user, BRLD_START_LIST);
         
+        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-16s+%-29s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 30).c_str()));
+        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("| %-16s| %-29s|", "Type", "Count"));
+        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-16s+%-29s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 30).c_str()));
+        
         for (std::map<std::string, unsigned int>::iterator i = this->nmap.begin(); i != this->nmap.end(); ++i)
         {
                  std::string ikey = Helpers::TypeString(i->first, true);
                  unsigned int item = i->second;
 
-                 user->SendProtocol(BRLD_ITEM, Daemon::Format("%-9s | %2s ", ikey.c_str(), convto_string(item).c_str()));
+                 Dispatcher::ListDepend(user, BRLD_USER_ITEM, Daemon::Format("| %-16s| %-29s|", ikey.c_str(), convto_string(item).c_str()), Daemon::Format("%s %s", ikey.c_str(), convto_string(item).c_str()));
         }
         
         Dispatcher::JustAPI(user, BRLD_END_LIST);
+        Dispatcher::JustEmerald(user, BRLD_END_LIST, Daemon::Format("+%-16s+%-29s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 30).c_str()));
 }

@@ -515,4 +515,10 @@ class ExportAPI Dispatcher : public safecast<Dispatcher>
         static bool CheckIterator(QueryBase* query);
         
         static void ListDepend(User* user, BRLD_PROTOCOL brld, const std::string& msg, const std::string& msg2);
+
+        static void Simple(User* user, const std::string& msg, const std::string& msg2);
+        
+        static void SimpleEnd(User* user);
+        
+        
 };

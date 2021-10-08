@@ -103,9 +103,7 @@ COMMAND_RESULT CommandListUsers::Handle(User* user, const Params& parameters)
         const StringVector& users = STHelper::HList("userlist");
         
         Dispatcher::JustAPI(user, BRLD_START_LIST);
-
-        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("%-30s | %-10s", "User", "Created"));
-        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("%-30s | %-10s", Dispatcher::Repeat("―", 30).c_str(), Dispatcher::Repeat("―", 10).c_str()));
+        Dispatcher::Simple(user, "User", "Created");
 
         for (StringVector::const_iterator i = users.begin(); i != users.end(); i++)
         {
@@ -118,10 +116,12 @@ COMMAND_RESULT CommandListUsers::Handle(User* user, const Params& parameters)
                       continue;
                 }
                 
-                Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("%-30s | %-10s", item.c_str(), Daemon::HumanEpochTime(convto_num<time_t>(created)).c_str()), Daemon::Format("%s %s", item.c_str(), created.c_str()));
+                Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("| %-16s| %-29s|", item.c_str(), Daemon::HumanEpochTime(convto_num<time_t>(created)).c_str()), Daemon::Format("%s %s", item.c_str(), created.c_str()));
         }        
         
-        Dispatcher::JustAPI(user, BRLD_USER_LIST_END);
+        Dispatcher::JustAPI(user, BRLD_END_LIST);
+        Dispatcher::SimpleEnd(user);
+        
         return SUCCESS;
 }
 
@@ -164,8 +164,9 @@ COMMAND_RESULT CommandListStatus::Handle(User* user, const Params& parameters)
 
         Dispatcher::JustAPI(user, BRLD_START_LIST);
 
-        Dispatcher::JustEmerald(user, BRLD_ITEM_LIST, Daemon::Format("%-30s | %-10s", "Admin", "Status"));
-        Dispatcher::JustEmerald(user, BRLD_ITEM_LIST, Daemon::Format("%-30s | %-10s", Dispatcher::Repeat("―", 30).c_str(), Dispatcher::Repeat("―", 10).c_str()));
+        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-16s+%-29s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 30).c_str()));
+        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("| %-16s| %-29s|", "Admin", "Status"));
+        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-16s+%-29s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 30).c_str()));
 
         for (StringVector::const_iterator i = users.begin(); i != users.end(); i++)
         {
@@ -185,10 +186,12 @@ COMMAND_RESULT CommandListStatus::Handle(User* user, const Params& parameters)
                       }
                 }
                 
-                Dispatcher::ListDepend(user, BRLD_USER_ITEM, Daemon::Format("%-30s | %-10s", item.c_str(), convto_string(Helpers::as_bool(status)).c_str()), Daemon::Format("%s %s", item.c_str(), convto_string(Helpers::as_bool(status)).c_str()));
+                Dispatcher::ListDepend(user, BRLD_USER_ITEM, Daemon::Format("|%-16s | %-29s|", item.c_str(), convto_string(Helpers::as_bool(status)).c_str()), Daemon::Format("%s %s", item.c_str(), convto_string(Helpers::as_bool(status)).c_str()));
         }
 
         Dispatcher::JustAPI(user, BRLD_END_LIST);
+        Dispatcher::JustEmerald(user, BRLD_END_LIST, Daemon::Format("+%-16s+%-29s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 30).c_str()));
+        
         return SUCCESS;
 }
 
@@ -203,8 +206,9 @@ COMMAND_RESULT CommandListAdmins::Handle(User* user, const Params& parameters)
 
         Dispatcher::JustAPI(user, BRLD_START_LIST);
 
-        Dispatcher::JustEmerald(user, BRLD_ITEM_LIST, Daemon::Format("%-30s | %-10s", "Admin", "Flag"));
-        Dispatcher::JustEmerald(user, BRLD_ITEM_LIST, Daemon::Format("%-30s | %-10s", Dispatcher::Repeat("―", 30).c_str(), Dispatcher::Repeat("―", 10).c_str()));
+        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-16s+%-29s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 30).c_str()));
+        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("| %-16s| %-29s|", "Admin", "Flag"));
+        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-16s+%-29s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 30).c_str()));
 
         for (StringVector::const_iterator i = users.begin(); i != users.end(); i++)
         {
@@ -216,10 +220,12 @@ COMMAND_RESULT CommandListAdmins::Handle(User* user, const Params& parameters)
                       continue;
                 }
                 
-                Dispatcher::ListDepend(user, BRLD_USER_ITEM, Daemon::Format("%-30s | %-10s", item.c_str(), userflags.c_str()), Daemon::Format("%s %s", item.c_str(), userflags.c_str()));
+                Dispatcher::ListDepend(user, BRLD_USER_ITEM, Daemon::Format("|%-16s | %-29s|", item.c_str(), userflags.c_str()), Daemon::Format("%s %s", item.c_str(), userflags.c_str()));
         }
 
         Dispatcher::JustAPI(user, BRLD_END_LIST);
+        Dispatcher::JustEmerald(user, BRLD_END_LIST, Daemon::Format("+%-16s+%-29s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 30).c_str()));
+        
         return SUCCESS;
 }
 
