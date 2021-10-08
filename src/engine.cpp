@@ -647,3 +647,15 @@ bool Dispatcher::CheckIterator(QueryBase* query)
        
        return true;
 }
+
+void Dispatcher::Simple(User* user, const std::string& msg, const std::string& msg2)
+{
+        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-16s+%-29s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 30).c_str()));
+        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("| %-16s| %-29s|", msg.c_str(), msg2.c_str()));
+        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-16s+%-29s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 30).c_str()));
+}
+
+void Dispatcher::SimpleEnd(User* user)
+{
+        Dispatcher::JustEmerald(user, BRLD_END_LIST, Daemon::Format("+%-16s+%-29s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 30).c_str()));
+}

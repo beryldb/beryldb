@@ -34,7 +34,14 @@ COMMAND_RESULT CommandExpireFIND::Handle(User* user, const Params& parameters)
          const ExpireMap& expiring = Kernel->Store->Expires->GetExpires();
 
          Dispatcher::JustAPI(user, BRLD_START_LIST);
-         Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("%-30s | %-10s", "Expire", "Schedule"));
+         
+         Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-25s+%-25s+%-9s+%-10s+", Dispatcher::Repeat("-", 26).c_str(), Dispatcher::Repeat("-", 26).c_str(), Dispatcher::Repeat("-", 10).c_str(), Dispatcher::Repeat("-", 10).c_str()));
+         Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("| %-25s| %-25s| %-9s| %-9s|", "Key", "Schedule", "Select", "Database"));
+         
+         
+         Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-30s+%-10s", Dispatcher::Repeat("-", 31).c_str(), Dispatcher::Repeat("-", 11).c_str()));
+         
+         Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-30s | %-10s", "Expire", "Schedule"));
          Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("%-30s | %-10s", Dispatcher::Repeat("―", 30).c_str(), Dispatcher::Repeat("―", 10).c_str()));
 
          for (ExpireMap::const_iterator it = expiring.begin(); it != expiring.end(); ++it)
@@ -102,10 +109,20 @@ COMMAND_RESULT CommandExpireLIST::Handle(User* user, const Params& parameters)
          
          const ExpireMap& expiring = Kernel->Store->Expires->GetExpires();
          
-         Dispatcher::JustAPI(user, BRLD_START_LIST);
+         if (!expiring.size())
+         {
+              Dispatcher::JustAPI(user, BRLD_START_LIST);
+              Dispatcher::JustEmerald(user, BRLD_OK, PROCESS_EMPTY);
+              Dispatcher::JustAPI(user, BRLD_END_LIST);
+              return SUCCESS;
+         }
          
-         Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("%-25s | %-25s | %-9s | %-10s", "Key", "Schedule", "Select", "Database"));
-         Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("%-25s | %-25s | %-9s | %-10s", Dispatcher::Repeat("―", 25).c_str(), Dispatcher::Repeat("―", 25).c_str(), Dispatcher::Repeat("―", 9).c_str(), Dispatcher::Repeat("―", 10).c_str()));
+         
+         Dispatcher::JustAPI(user, BRLD_START_LIST);
+
+         Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-25s+%-25s+%-9s+%-10s+", Dispatcher::Repeat("-", 26).c_str(), Dispatcher::Repeat("-", 26).c_str(), Dispatcher::Repeat("-", 10).c_str(), Dispatcher::Repeat("-", 10).c_str()));
+         Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("| %-25s| %-25s| %-9s| %-9s|", "Key", "Schedule", "Select", "Database"));
+         Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-25s+%-25s+%-9s+%-10s+", Dispatcher::Repeat("-", 26).c_str(), Dispatcher::Repeat("-", 26).c_str(), Dispatcher::Repeat("-", 10).c_str(), Dispatcher::Repeat("-", 10).c_str()));
 
          for (ExpireMap::const_iterator it = expiring.begin(); it != expiring.end(); ++it)
          {
@@ -122,9 +139,10 @@ COMMAND_RESULT CommandExpireLIST::Handle(User* user, const Params& parameters)
                       schedule = Daemon::HumanEpochTime(entry.schedule).c_str();
                }
                
-               Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("%-25s | %-25s | %-9s | %-10s", entry.key.c_str(), schedule.c_str(), convto_string(entry.select).c_str(), entry.database->GetName().c_str()), Daemon::Format("%s %s %s %s",  entry.key.c_str(), schedule.c_str(), convto_string(entry.select).c_str(), entry.database->GetName().c_str()));
+               Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("| %-25s| %-25s| %-9s| %-9s|", entry.key.c_str(), schedule.c_str(), convto_string(entry.select).c_str(), entry.database->GetName().c_str()), Daemon::Format("%s %s %s %s",  entry.key.c_str(), schedule.c_str(), convto_string(entry.select).c_str(), entry.database->GetName().c_str()));
          }
-         
+
+         Dispatcher::JustEmerald(user, BRLD_END_LIST, Daemon::Format("+%-25s+%-25s+%-9s+%-10s+", Dispatcher::Repeat("-", 26).c_str(), Dispatcher::Repeat("-", 26).c_str(), Dispatcher::Repeat("-", 10).c_str(), Dispatcher::Repeat("-", 10).c_str()));
          Dispatcher::JustAPI(user, BRLD_END_LIST);
          return SUCCESS;
 }

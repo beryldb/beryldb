@@ -324,7 +324,7 @@ void Beryl::Loop()
 
         SocketPool::Writes();
         SocketPool::Events();
-      
+
 	/* Removes all quitting clients. */
 	
         this->Reducer->Apply();

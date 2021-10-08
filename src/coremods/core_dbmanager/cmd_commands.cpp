@@ -109,7 +109,7 @@ COMMAND_RESULT CommandUse::Handle(User* user, const Params& parameters)
        }
        else
        {
-            user->SendProtocol(BRLD_OK, use);       
+            user->SendProtocol(BRLD_OK, PROCESS_OK);       
        }
        
        return SUCCESS;
@@ -257,8 +257,10 @@ COMMAND_RESULT CommandDBLIST::Handle(User* user, const Params& parameters)
       const DataMap& dbases = Kernel->Store->DBM->GetDatabases();
 
       Dispatcher::JustAPI(user, BRLD_START_LIST);
-      Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("%-30s | %-10s", "Name", "Path"));
-      Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("%-30s | %-10s", Dispatcher::Repeat("―", 30).c_str(), Dispatcher::Repeat("―", 10).c_str()));
+
+      Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-16s+%-29s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 30).c_str()));
+      Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("| %-16s| %-29s|", "Name", "Path"));
+      Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-16s+%-29s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 30).c_str()));
        
       for (DataMap::const_iterator it = dbases.begin(); it != dbases.end(); ++it)
       {
@@ -275,10 +277,12 @@ COMMAND_RESULT CommandDBLIST::Handle(User* user, const Params& parameters)
                    }
             }
             
-            Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("%-30s | %-10s", dbname.c_str(), dbpath.c_str()), Daemon::Format("%s %s", dbname.c_str(), dbpath.c_str()));
+            Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("| %-16s| %-29s", dbname.c_str(), dbpath.c_str()), Daemon::Format("%s %s", dbname.c_str(), dbpath.c_str()));
       }     
       
       Dispatcher::JustAPI(user, BRLD_END_LIST);
+      Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-16s+%-29s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 30).c_str()));
+      
       return SUCCESS;
 }
 
@@ -313,6 +317,12 @@ COMMAND_RESULT CommandDBCreate::Handle(User* user, const Params& parameters)
       if (Kernel->Store->DBM->CountDatabases() > MAX_DATABASES)
       {
              user->SendProtocol(ERR_INPUT, USER_MIMMAX_LENGTH);         
+             return FAILED;
+      }
+
+      if (!Kernel->Engine->IsDatabase(name))
+      {
+             user->SendProtocol(ERR_INPUT, PROCESS_ERROR);
              return FAILED;
       }
       

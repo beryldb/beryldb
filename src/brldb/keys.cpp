@@ -631,7 +631,7 @@ void settx_query::Run()
 {
        RocksData result = this->Get(this->dest);
        
-       if (this->IsExpiring() == (unsigned int)0)
+       if (this->IsExpiring() < 0)
        {
             this->Write(this->dest, to_bin(this->value));
             this->SetOK();
@@ -784,7 +784,7 @@ void search_query::Run()
 
 void search_query::Process()
 {
-        Dispatcher::MMapFlush(true, "Key", "Value", this);
+        Dispatcher::MMapFlush(false, "Key", "Value", this);
 }
 
 void keys_query::Run()
