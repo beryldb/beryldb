@@ -130,3 +130,20 @@ class CommandQuit : public Command
 
         COMMAND_RESULT Handle(User* user, const Params& parameters);
 };
+
+/* 
+ * Alias command for quit.
+ * 
+ * @protocol:
+ *
+ *         · enum   : OK or ERROR.
+ */ 
+
+class CommandQ : public Command
+{
+ public:
+
+        CommandQ(Module* parent);
+
+        COMMAND_RESULT Handle(User* user, const Params& parameters);
+};

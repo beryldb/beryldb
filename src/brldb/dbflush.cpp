@@ -174,7 +174,7 @@ void DataFlush::GetResults()
                               
                               if (!signal->partial)
                               {
-                              user->SetLock(false);
+                                    user->SetLock(false);
                               }
                   }
             }
@@ -434,6 +434,7 @@ void DataThread::Process()
                                if (request->user)
                                {
                                      request->user->SetLock(false);
+                                     this->SetStatus(false);
                                }
                                
                                queue.pop();
@@ -453,9 +454,9 @@ void DataThread::Process()
                                  request->Prepare();
                           }
 
-                          DataFlush::query_mute.unlock();
-            
                           this->SetStatus(false);
+
+                         DataFlush::query_mute.unlock();
 
                           if (request->flags == QUERY_FLAGS_QUIET)
                           {

@@ -15,7 +15,7 @@
 #           Default is true.
 #
 
-#<dbconf threads="2" parallels="1" yield_usec="20" createim="true">
+<dbconf threads="1" parallels="1" yield_usec="20" createim="true">
 
 # Futures/Expires ###########################################
 #

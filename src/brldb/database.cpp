@@ -51,7 +51,7 @@ void Database::Close()
         }
 
         slog("DATABASE", LOG_DEFAULT, "Closing database: %s.", this->GetName().c_str());
-        bprint(INFO, "Closing database: %s.", this->GetName().c_str());
+        //bprint(INFO, "Closing database: %s.", this->GetName().c_str());
 
         delete this->db;
 }
@@ -97,7 +97,7 @@ bool Database::FlushDB()
         
         this->SetClosing(true);
 
-        bprint(INFO, "Processing Flushdb: %s.", this->name.c_str());
+        //bprint(INFO, "Processing Flushdb: %s.", this->name.c_str());
         slog("DATABASE", LOG_DEFAULT, "Processing Flushdb: %s.", this->name.c_str());
         
         /* We must close our database before flushing it. */

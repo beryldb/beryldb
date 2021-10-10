@@ -105,6 +105,7 @@ class CoreModUser : public Module
 	CommandQuit		cmdquit;
 	CommandAgent 		cmdagent;
 	CommandAuth 		cmdauth;
+	CommandQ		cmdq;	
 
   public:
  
@@ -116,6 +117,7 @@ class CoreModUser : public Module
 			, cmdquit(this)
 			, cmdagent(this)
 			, cmdauth(this)
+			, cmdq(this)
 
 	{
 	

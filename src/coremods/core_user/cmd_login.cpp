@@ -150,6 +150,17 @@ RouteParams CommandExit::GetRouting(User* user, const Params& parameters)
         return (IS_LOCAL(user) ? ROUTE_LOCALONLY : ROUTE_BROADCAST);
 }
 
+
+CommandQ::CommandQ(Module* parent) : Command(parent, "Q", 0)
+{
+        alias = "EXIT";
+}
+
+COMMAND_RESULT CommandQ::Handle(User* user, const Params& parameters)
+{
+        return SUCCESS;
+}
+
 CommandQuit::CommandQuit(Module* parent) : Command(parent, "QUIT", 0)
 {
 	alias = "EXIT";

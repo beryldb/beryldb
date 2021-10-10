@@ -25,8 +25,10 @@
  *
  * @return:
  *
- *         · True     : Valid number.
- *         · False    : Invalid number.
+ *       - bool
+ *
+ *         · true     : Valid number.
+ *         · false    : Invalid number.
  */
 
 inline bool CheckValidPos(User* user, const std::string& number)
@@ -51,11 +53,11 @@ inline bool CheckValidPos(User* user, const std::string& number)
  * 
  * @parameters:
  *
- *         · number: Number to check.
+ *         · string	: Number to check.
  * 
  * @return:
  *
- *         · True: Is numeric.
+ *         · True	: Is numeric.
  */    
  
 inline bool CheckValid(User* user, const std::string& number)
@@ -74,13 +76,15 @@ inline bool CheckValid(User* user, const std::string& number)
  * 
  * @parameters:
  *
- *         · value: String to check.
- *         · notify: Whether this function notifies to the requesting user.
+ *         · string	: String to check.
+ *         · bool	: Whether this function notifies to the requesting user.
  *
  * @return:
  *
- *         · True: Valid query.
- *         · False: Invalid query.
+ *       - bool:
+ *
+ *          · true	: Valid query.
+ *          · false	: Invalid query.
  */
 
 inline bool CheckFormat(User* user, const std::string& value, bool notify = true)
@@ -123,11 +127,11 @@ inline bool CheckFormat(User* user, const std::string& value, bool notify = true
  * 
  * @parameters:
  *
- *         · string: Key to check.
+ *         · string	: Key to check.
  *
  * @return:
  *
- *         · True: Valid key.
+ *         · true	: Valid key.
  */
 
 inline bool CheckKey(User* user, const std::string& value, bool notify = true)

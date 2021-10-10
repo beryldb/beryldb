@@ -147,7 +147,6 @@ COMMAND_RESULT CommandType::Handle(User* user, const Params& parameters)
 
 CommandTouch::CommandTouch(Module* Creator) : Command(Creator, "TOUCH", 1, 1)
 {
-        check_value     =       true;
         group  		= 	'h';
         syntax 		= 	"[keys]";
 }
@@ -160,7 +159,6 @@ COMMAND_RESULT CommandTouch::Handle(User* user, const Params& parameters)
 
 CommandNTouch::CommandNTouch(Module* Creator) : Command(Creator, "NTOUCH", 1, 1)
 {
-        check_value     =       true;
         syntax 		= 	"[keys]";
         group  		= 	'h';
 }

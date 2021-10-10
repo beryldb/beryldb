@@ -274,6 +274,7 @@ bool QueryBase::CheckKey()
 
 bool QueryBase::Prepare()
 {
+ 
      if (!this->Check())
      {
            return false;
@@ -283,7 +284,7 @@ bool QueryBase::Prepare()
      {
             return false;
      }
-
+     
      switch (this->type)
      {
            case QUERY_TYPE_WRITE:

@@ -277,9 +277,9 @@ void Beryl::Dispatcher()
 
 	do
 	{
-                /* this->TIME should be updated in every loop. */
+		this->Refresh();
 
-                this->Refresh();
+                /* this->TIME should be updated in every loop. */
 
 		if (this->TIME.tv_sec != PREV_TIME)
 		{	
@@ -287,7 +287,15 @@ void Beryl::Dispatcher()
 			
 		    	/* Run functions that are meant to run every 1 second. */
 		    	
-			this->Timed(this->TIME.tv_sec);
+		    	this->Timed(this->TIME.tv_sec);
+		}
+
+	        /* Signal detector. */
+
+        	if (s_signal)
+	        {
+        		this->SignalManager(s_signal);
+        		Beryl::s_signal = 0;
 		}
 
 	        /* Delivers pending data to clients. */
@@ -297,14 +305,6 @@ void Beryl::Dispatcher()
 		/* Main processes. */
 		
 		this->Loop();
- 	
-		/* Signal detector. */
-		
- 	        if (s_signal)
- 	        {
-			this->SignalManager(s_signal);
-			Beryl::s_signal = 0;
-                }
 	}		
 	while (true);
 }
