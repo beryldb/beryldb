@@ -42,9 +42,9 @@ class ExportAPI CommandQueue : public safecast<CommandQueue>
          * 
          * @parameters:
 	 *
-	 *         · user: User that is requesting this new command.
-	 *         · command: Command requested.
-	 *         · cmd_params: Command's parameters.
+	 *         · user	: User that is requesting this new command.
+	 *         · string	: Command requested.
+	 *         · cmd_params : Command's parameters.
          */          
 
         void Add(LocalUser* user, const std::string& command, CommandModel::Params& cmd_params);
@@ -54,7 +54,7 @@ class ExportAPI CommandQueue : public safecast<CommandQueue>
          * This function is called from mainloop and runs constantly.
          */    
 	
-	void Flush();
+	bool Flush();
 
         /* Resets pending flushes. */
         
@@ -101,12 +101,12 @@ class ExportAPI CommandHandler : public safecast<CommandHandler>
          * 
          * @parameters:
 	 *
-	 *         · Command: Command to add.
+	 *         · Command	: Command to add.
 	 * 
          * @return:
  	 *
-         *         · True: Command added.
-         *         · False: Unable to add command.
+         *         · True	: Command added.
+         *         · False	: Unable to add command.
          */    
          
 	 bool AddCommand(Command *cmd);

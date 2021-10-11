@@ -186,7 +186,7 @@ COMMAND_RESULT CommandListStatus::Handle(User* user, const Params& parameters)
                       }
                 }
                 
-                Dispatcher::ListDepend(user, BRLD_USER_ITEM, Daemon::Format("|%-16s | %-29s|", item.c_str(), convto_string(Helpers::as_bool(status)).c_str()), Daemon::Format("%s %s", item.c_str(), convto_string(Helpers::as_bool(status)).c_str()));
+                Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("|%-16s | %-29s|", item.c_str(), convto_string(Helpers::as_bool(status)).c_str()), Daemon::Format("%s %s", item.c_str(), convto_string(Helpers::as_bool(status)).c_str()));
         }
 
         Dispatcher::JustAPI(user, BRLD_END_LIST);
@@ -220,7 +220,7 @@ COMMAND_RESULT CommandListAdmins::Handle(User* user, const Params& parameters)
                       continue;
                 }
                 
-                Dispatcher::ListDepend(user, BRLD_USER_ITEM, Daemon::Format("|%-16s | %-29s|", item.c_str(), userflags.c_str()), Daemon::Format("%s %s", item.c_str(), userflags.c_str()));
+                Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("|%-16s | %-29s|", item.c_str(), userflags.c_str()), Daemon::Format("%s %s", item.c_str(), userflags.c_str()));
         }
 
         Dispatcher::JustAPI(user, BRLD_END_LIST);

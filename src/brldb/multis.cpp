@@ -408,7 +408,7 @@ void mget_query::Process()
                return;
         }
 
-        Dispatcher::VectorFlush(true, "Multi", this);
+        Dispatcher::VectorFlush(false, "Multi", this);
 }
 
 void mrepeats_query::Run()

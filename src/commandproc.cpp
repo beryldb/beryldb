@@ -560,7 +560,7 @@ void CommandQueue::Add(LocalUser* user, const std::string& command, CommandModel
 	        if (user->Multi && command != "MRUN")
 	        {
 	      		user->PendingMulti.push_back(adding);
-	      		user->SendProtocol(BRLD_OK, "QUEUED");
+	      		user->SendProtocol(BRLD_QUEUED, "QUEUED");
 	      		return;
 		}
 		
@@ -591,18 +591,20 @@ void CommandQueue::Reset()
 	}
 }
 
-void CommandQueue::Flush()
+bool CommandQueue::Flush()
 {
+       bool flag = false;
+       
        if (!Kernel->Ready)
        {
-        	return;
+        	return flag;
        }
        
        const ClientManager::LocalList& users = Kernel->Clients->GetLocals();
        
        if (!users.size())
        {
-               return;
+               return false;
        }
       
        for (ClientManager::LocalList::const_iterator u = users.begin(); u != users.end(); ++u)
@@ -632,7 +634,7 @@ void CommandQueue::Flush()
                {
                        user->PendingList.pop_front();
                        Kernel->Commander->Execute(user, event.command, event.cmd_params);
-                       return;
+                       return true;
                }
                   
                if (user->IsLocked())
@@ -644,6 +646,7 @@ void CommandQueue::Flush()
                {
 	               	user->MultiRunning = true;
 	               	user->Multi = false;
+	               	Dispatcher::JustAPI(user, BRLD_MULTI_START);
 	       }
 	       
 	       if (user->MultiRunning)
@@ -651,16 +654,21 @@ void CommandQueue::Flush()
   		      if (!user->PendingMulti.size())
                       {
                            user->MultiRunning = false;
+                           Dispatcher::JustAPI(user, BRLD_MULTI_STOP);
                            continue;
                       }
 
 	       	      PendingCMD m_event = user->PendingMulti.front();
 	       	      Kernel->Commander->Execute(user, m_event.command, m_event.cmd_params);
 	              user->PendingMulti.pop_front();
+	              flag = true;
 	              continue;
 	        }
                
-	       user->PendingList.pop_front();
-               Kernel->Commander->Execute(user, event.command, event.cmd_params);
+  	        user->PendingList.pop_front();
+                Kernel->Commander->Execute(user, event.command, event.cmd_params);
+                flag = true;
         }
+        
+        return flag;
 }

@@ -285,6 +285,7 @@ sub cmd_stop()
 	print_ok "Stopping BerylDB (PID: $pid)";
 	my $maxwait = (`ps -o command $pid 2>/dev/null` =~ /valgrind/i) ? 90 : 15;
 	kill TERM => $pid or die "Cannot terminate BerylDB: $!\n";
+        kill 9, $pid;
 
         for (1..$maxwait) 
 	{
