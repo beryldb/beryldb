@@ -11,15 +11,15 @@
 This README is a brief introduction to Beryl. For extended information, you
 can visit our documentation site at [docs.beryl.dev](https://docs.beryl.dev/).
 
-## Get involved
+## Join our community 👋
 
-Join our community 👋 We invite people from different backgrounds 🌈👨❤️ :raising_hand::older_man:  
+We invite people from different backgrounds 🌈👨❤️ :raising_hand::older_man:  
 
 If you are just getting started as programmer, there are several ways that you can
 collaborate. There is no need to be a senior programmer. At BerylDB, we
 are problem solvers and welcome people having this vision 👍
 
-### Some ways to get involved include 
+### How do I get involved?
  
  - 🎓 Check our pending issues, or create your own.
  - 🌵 Contribute to our APIs (JS, [PHP](https://github.com/beryldb/php-beryl), Python).
@@ -28,7 +28,7 @@ are problem solvers and welcome people having this vision 👍
 
 ![Logo](https://docs.beryl.dev/img/smaller.png??)
 
-## What is Beryl?
+## What is BerylDB?
 
 Beryl is a data structure server. Our database provides access to structures via a 
 wide range of commands, which are later queued, processed, and dispatched. 
@@ -61,33 +61,33 @@ using 4 cores. Feel free to change this number according to your CPU.
 
 * Installing dependencies in **Debian** based systems:
 
-```console
+```bash
 sudo apt-get install librocksdb-dev build-essential
 ```
 
 * Installing dependencies in **Redhat** based systems:
 
-```console
+```bash
 dnf install @development-tools
 yum install git rocksdb-devel.x86_64
 ```
 
 * Installing dependencies in **macOS**:
 
-```console
+```bash
 brew install rocksdb 
 ```
 
 Clone Beryl's latest stable version:
 
-```console
-git clone --branch 1.0 https://github.com/beryldb/beryldb.git --depth=5
+```bash
+git clone --branch 1.0 https://github.com/beryldb/beryldb.git 
 cd beryldb/
 ```
 
 You may now configure BerylDB following these quick steps: 
 
-```console
+```bash
 ./configure
 make -j4 install
 ```
@@ -139,7 +139,7 @@ Beryl-cli:
 * use **exists** to verify whether a given key exists.
 * **strlen** is used to obtain a key's length.
 
-```console
+```bash
 beryl> set hello "world"
 OK
 beryl> get hello
@@ -156,26 +156,32 @@ beryl> exists hello
 
 You can also run the **ls** command to obtain a counter in all structures:
 
-```console
+```bash
 beryl> ls
-KEY       |  1 
-MAP       |  0 
-LIST      |  5 
-GEO       |  2 
-MULTIMAP  |  0 
-VECTOR    |  6 
-EXPIRES   |  1 
-FUTURES   |  0 
++-----------------+----------------------+
+| Type            | Count                |
++-----------------+----------------------+
+| KEYS            | 5                    |
+| MAPS            | 7                    |
+| LISTS           | 0                    |
+| GEOS            | 12                   |
+| MULTIMAPS       | 0                    |
+| VECTORS         | 9                    |
+| EXPIRES         | 1                    |
+| FUTURES         | 0                    |
++-----------------+----------------------+
 ```
 
 To search all keys:
 
-```console
+```bash
 beryl> search *
-Key                | Value     
-―――――――――――――――――― | ―――――――
-hello              | "world"  
-test		   | "value"
++-----------------+----------------------+
+| Key             | Value                |
++-----------------+----------------------+
+| hello           | world                |
+| test            | value                |
++-----------------+----------------------+
 ```
 
 Take a look at all Beryl's commands [here](https://docs.beryl.dev/using/commands/).
