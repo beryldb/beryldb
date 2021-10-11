@@ -49,9 +49,10 @@ COMMAND_RESULT CommandFinger::Handle(User* user, const Params& parameters)
         const LoginHash& users = Kernel->Clients->GetLogins();
 
         Dispatcher::JustAPI(user, BRLD_START_LIST);
-        
-        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("%-30s | %-10s | %-8s | %-10s | %-5s", "Instance", "IP", "Login", "Agent", "Logged"));
-        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("%-30s | %-10s | %-8s | %-10s | %-5s", Dispatcher::Repeat("―", 30).c_str(), Dispatcher::Repeat("―", 10).c_str(), Dispatcher::Repeat("―", 8).c_str(), Dispatcher::Repeat("―", 10).c_str(), Dispatcher::Repeat("―", 5).c_str()));
+
+        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-25s+%-20s+%-10s+%-10s+%-25s+", Dispatcher::Repeat("-", 26).c_str(), Dispatcher::Repeat("-", 21).c_str(), Dispatcher::Repeat("-", 11).c_str(), Dispatcher::Repeat("-", 11).c_str(), Dispatcher::Repeat("-", 26).c_str()));
+        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("| %-25s| %-20s| %-10s| %-10s| %-25s|", "Instance", "IP", "Login", "Agent", "Logged"));
+        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-25s+%-20s+%-10s+%-10s+%-25s+", Dispatcher::Repeat("-", 26).c_str(), Dispatcher::Repeat("-", 21).c_str(), Dispatcher::Repeat("-", 11).c_str(), Dispatcher::Repeat("-", 11).c_str(), Dispatcher::Repeat("-", 26).c_str()));
 
         for (LoginHash::const_iterator i = users.begin(); i != users.end(); ++i)
         {
@@ -62,9 +63,10 @@ COMMAND_RESULT CommandFinger::Handle(User* user, const Params& parameters)
             	        continue;
             	}
             	
-                Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("%-30s | %-10s | %-8s | %-10s | %-5s", login->instance.c_str(), login->GetReadableIP().c_str(), login->login.c_str(), login->agent.c_str(), Daemon::HumanEpochTime(login->GetConnected()).c_str()), Daemon::Format("%s %s %s %s %s", login->instance.c_str(), login->GetReadableIP().c_str(), login->login.c_str(), login->agent.c_str(), Daemon::HumanEpochTime(login->GetConnected()).c_str()));
+                Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("| %-25s| %-20s| %-10s| %-10s| %-25s|", login->instance.c_str(), login->GetReadableIP().c_str(), login->login.c_str(), login->agent.c_str(), Daemon::HumanEpochTime(login->GetConnected()).c_str()), Daemon::Format("%s %s %s %s %s", login->instance.c_str(), login->GetReadableIP().c_str(), login->login.c_str(), login->agent.c_str(), Daemon::HumanEpochTime(login->GetConnected()).c_str()));
         }
 
+        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-25s+%-20s+%-10s+%-10s+%-25s+", Dispatcher::Repeat("-", 26).c_str(), Dispatcher::Repeat("-", 21).c_str(), Dispatcher::Repeat("-", 11).c_str(), Dispatcher::Repeat("-", 11).c_str(), Dispatcher::Repeat("-", 26).c_str()));
         Dispatcher::JustAPI(user, BRLD_END_LIST);
 	return SUCCESS;
 }

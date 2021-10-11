@@ -560,7 +560,7 @@ void CommandQueue::Add(LocalUser* user, const std::string& command, CommandModel
 	        if (user->Multi && command != "MRUN")
 	        {
 	      		user->PendingMulti.push_back(adding);
-	      		user->SendProtocol(BRLD_OK, "QUEUED");
+	      		user->SendProtocol(BRLD_QUEUED, "QUEUED");
 	      		return;
 		}
 		
@@ -646,6 +646,7 @@ bool CommandQueue::Flush()
                {
 	               	user->MultiRunning = true;
 	               	user->Multi = false;
+	               	Dispatcher::JustAPI(user, BRLD_MULTI_START);
 	       }
 	       
 	       if (user->MultiRunning)
@@ -653,6 +654,7 @@ bool CommandQueue::Flush()
   		      if (!user->PendingMulti.size())
                       {
                            user->MultiRunning = false;
+                           Dispatcher::JustAPI(user, BRLD_MULTI_STOP);
                            continue;
                       }
 
