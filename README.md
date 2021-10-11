@@ -22,7 +22,7 @@ are problem solvers and welcome people having this vision 👍
 ### How do I get involved?
  
  - 🎓 Check our pending issues, or create your own.
- - 🌵 Contribute to our APIs (JS, [PHP](https://github.com/beryldb/php-beryl), Python).
+ - 🌵 Contribute to our Drivers (JS, [PHP](https://github.com/beryldb/php-beryl), Python).
  - 🙋 Become a QA: Test our software and report back ([Check our Google group](https://groups.google.com/g/beryldb)).
  - 💬 Get Involved and join our [Discord server](https://discord.gg/GRCEuMdYRt).
 
@@ -95,7 +95,7 @@ make -j4 install
 Beryl is compiled in verbose level by default. If you prefer to build with minimal
 information, you can use:
 
-```console
+```
 make -j4 install VERBOSE=0
 ```
 
@@ -120,13 +120,14 @@ Great! You may now run your very first BerylDB command using
 Keep in mind that BerylDB uses port **6378** by default, so be sure to
 maintain that port unused before running the server.
 
-## APIs
+## Drivers
 
-APIs are used to interact with a BerylDB data-structure server. You can
-typically execute the same exact command as if you were connecting from
-the CLI.
+Drivers are used to interact with a given BerylDB instance. 
+If you are familiar with BerylDB, you may notice that driver's functions
+typically have the same name that its parent function.
 
-* Check our [PHP API](https://github.com/beryldb/php-beryl).
+* Check our [PHP Driver](https://github.com/beryldb/php-beryl).
+* Check our [Node.js Driver](https://github.com/beryldb/php-beryl).
 
 ## First queries
 

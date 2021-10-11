@@ -245,7 +245,7 @@ COMMAND_RESULT CommandIsNum::Handle(User* user, const Params& parameters)
 CommandGetPersist::CommandGetPersist(Module* Creator) : Command(Creator, "GETPERSIST", 1, 1)
 {
          check_key       =       0;
-         groups 	 = 	{ 'e', 'k' };
+         group 	 = 	'k';
          syntax 	 =	"<key>";
 }
 
