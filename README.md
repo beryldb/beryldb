@@ -11,15 +11,15 @@
 This README is a brief introduction to Beryl. For extended information, you
 can visit our documentation site at [docs.beryl.dev](https://docs.beryl.dev/).
 
-## Get involved
+## Join our community 👋
 
-Join our community 👋 We invite people from different backgrounds 🌈👨❤️ :raising_hand::older_man:  
+We invite people from different backgrounds 🌈👨❤️ :raising_hand::older_man:  
 
 If you are just getting started as programmer, there are several ways that you can
 collaborate. There is no need to be a senior programmer. At BerylDB, we
 are problem solvers and welcome people having this vision 👍
 
-### Some ways to get involved include 
+### How do I get involved?
  
  - 🎓 Check our pending issues, or create your own.
  - 🌵 Contribute to our APIs (JS, [PHP](https://github.com/beryldb/php-beryl), Python).
@@ -28,7 +28,7 @@ are problem solvers and welcome people having this vision 👍
 
 ![Logo](https://docs.beryl.dev/img/smaller.png??)
 
-## What is Beryl?
+## What is BerylDB?
 
 Beryl is a data structure server. Our database provides access to structures via a 
 wide range of commands, which are later queued, processed, and dispatched. 
@@ -61,33 +61,33 @@ using 4 cores. Feel free to change this number according to your CPU.
 
 * Installing dependencies in **Debian** based systems:
 
-```console
+```
 sudo apt-get install librocksdb-dev build-essential
 ```
 
 * Installing dependencies in **Redhat** based systems:
 
-```console
+```
 dnf install @development-tools
 yum install git rocksdb-devel.x86_64
 ```
 
 * Installing dependencies in **macOS**:
 
-```console
+```
 brew install rocksdb 
 ```
 
 Clone Beryl's latest stable version:
 
-```console
-git clone --branch 1.0 https://github.com/beryldb/beryldb.git --depth=5
+```
+git clone --branch 1.0 https://github.com/beryldb/beryldb.git 
 cd beryldb/
 ```
 
 You may now configure BerylDB following these quick steps: 
 
-```console
+```
 ./configure
 make -j4 install
 ```
@@ -103,14 +103,14 @@ make -j4 install VERBOSE=0
 
 To run Beryl using the default configuration, type:
 
-```console
+```
 ./run/beryldb start
 ```
 
 **NOTE**: Beryl runs in the background by default. If you wish to avoid
 forking, you can run the server using nofork:
 
-```console
+```
 ./run/beryldb start --nofork
 ```
 
@@ -139,7 +139,7 @@ Beryl-cli:
 * use **exists** to verify whether a given key exists.
 * **strlen** is used to obtain a key's length.
 
-```console
+```
 beryl> set hello "world"
 OK
 beryl> get hello
@@ -156,29 +156,35 @@ beryl> exists hello
 
 You can also run the **ls** command to obtain a counter in all structures:
 
-```console
-beryl> ls
-KEY       |  1 
-MAP       |  0 
-LIST      |  5 
-GEO       |  2 
-MULTIMAP  |  0 
-VECTOR    |  6 
-EXPIRES   |  1 
-FUTURES   |  0 
+```
+beryl> 
++-----------------+----------------------+
+| Type            | Count                |
++-----------------+----------------------+
+| KEYS            | 5                    |
+| MAPS            | 7                    |
+| LISTS           | 0                    |
+| GEOS            | 12                   |
+| MULTIMAPS       | 0                    |
+| VECTORS         | 9                    |
+| EXPIRES         | 1                    |
+| FUTURES         | 0                    |
++-----------------+----------------------+
 ```
 
 To search all keys:
 
-```console
+```
 beryl> search *
-Key                | Value     
-―――――――――――――――――― | ―――――――
-hello              | "world"  
-test		   | "value"
++-----------------+----------------------+
+| Key             | Value                |
++-----------------+----------------------+
+| hello           | world                |
+| test            | value                |
++-----------------+----------------------+
 ```
 
-Take a look at all Beryl's commands [here](https://docs.beryl.dev/using/commands/).
+Take a look at all BerylDB's commands [here](https://docs.beryl.dev/using/commands/).
 
 ## Coremodules and Modules
 
@@ -219,7 +225,7 @@ Inside the root directory, you will find:
 * `etc`: Libraries developed by 3rd party organizations.
 * `make`: Contains several Perl-based functions to compile BerylDB.
 
-NOTE: Beryl has changed a bit. Some functions and file names may have
+NOTE: BerylDB has changed a bit. Some functions and file names may have
 changed. Hence, Beryl's documentation may be closer to the ``stable`` branch.
 Nonetheless, the core structure is the same, tested extensively.
 
@@ -229,7 +235,6 @@ We are always welcoming new members. If you wish to start contributing code to t
 Beryl project in any form, such as in the form of pull requests via Github, 
 a code snippet, or a patch, you will need to agree to release your work under the terms of the
 BSD license.
-
 
 ## External Links
 
