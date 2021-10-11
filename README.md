@@ -22,7 +22,7 @@ are problem solvers and welcome people having this vision 👍
 ### How do I get involved?
  
  - 🎓 Check our pending issues, or create your own.
- - 🌵 Contribute to our Drivers (JS, [PHP](https://github.com/beryldb/php-beryl), Python).
+ - 🌵 Contribute to our Drivers ([Node.js](https://github.com/beryldb/node-beryl), [PHP](https://github.com/beryldb/php-beryl), Python).
  - 🙋 Become a QA: Test our software and report back ([Check our Google group](https://groups.google.com/g/beryldb)).
  - 💬 Get Involved and join our [Discord server](https://discord.gg/GRCEuMdYRt).
 
@@ -127,7 +127,7 @@ If you are familiar with BerylDB, you may notice that driver's functions
 typically have the same name that its parent function.
 
 * Check our [PHP Driver](https://github.com/beryldb/php-beryl).
-* Check our [Node.js Driver](https://github.com/beryldb/php-beryl).
+* Check our [Node.js Driver](https://github.com/beryldb/node-beryl).
 
 ## First queries
 
