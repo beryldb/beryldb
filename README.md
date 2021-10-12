@@ -158,7 +158,7 @@ beryl> exists hello
 You can also run the **ls** command to obtain a counter in all structures:
 
 ```
-beryl> 
+beryl> ls
 +-----------------+----------------------+
 | Type            | Count                |
 +-----------------+----------------------+
@@ -181,7 +181,7 @@ beryl> search *
 | Key             | Value                |
 +-----------------+----------------------+
 | hello           | world                |
-| test            | value                |
+| test            | entry                |
 +-----------------+----------------------+
 ```
 

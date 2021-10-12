@@ -53,7 +53,8 @@ void vfind_query::Run()
                                     {
                                                 std::shared_ptr<vfind_query> request = std::make_shared<vfind_query>();
                                                 request->user = this->user;
-                                                request->partial = true;                                  
+                                                request->partial = true;       
+                                                request->key	= this->key;                           
                                                 request->subresult = ++tracker;
                                                 request->VecData = result;
                                                 result.clear();
@@ -76,6 +77,7 @@ void vfind_query::Run()
                              {
                                         std::shared_ptr<vfind_query> request = std::make_shared<vfind_query>();
                                         request->user = this->user;
+                                        request->key    = this->key;                       
                                         request->partial = true;
                                         request->subresult = ++tracker;
                                         request->VecData = result;
@@ -224,6 +226,7 @@ void vkeys_query::Run()
                                                 request->partial = true;                                  
                                                 request->subresult = tracker;
                                                 request->VecData = result;
+                                                request->key    = this->key;                       
                                                 result.clear();
                                                 request->SetOK();
                                                 DataFlush::AttachResult(request);
@@ -245,6 +248,7 @@ void vkeys_query::Run()
                                         tracker++;
                                         std::shared_ptr<vkeys_query> request = std::make_shared<vkeys_query>();
                                         request->user = this->user;
+                                        request->key    = this->key;                       
                                         request->partial = true;
                                         request->subresult = tracker;
                                         request->VecData = result;
@@ -421,6 +425,7 @@ void vget_query::Run()
                                                 std::shared_ptr<vget_query> request = std::make_shared<vget_query>();
                                                 request->user = this->user;
                                                 request->partial = true;                                  
+                                                request->key    = this->key;                       
                                                 request->subresult = ++tracker;
                                                 request->VecData = result_return;
                                                 result_return.clear();
@@ -443,6 +448,7 @@ void vget_query::Run()
                              {
                                         std::shared_ptr<vget_query> request = std::make_shared<vget_query>();
                                         request->user = this->user;
+                                        request->key    = this->key;                       
                                         request->partial = true;
                                         request->subresult = ++tracker;
                                         request->VecData = result_return;
