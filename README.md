@@ -126,39 +126,39 @@ Drivers are used to interact with a given BerylDB instance.
 If you are familiar with BerylDB, you may notice that driver's functions
 typically have the same name that its parent function.
 
-* Check our [PHP Driver](https://github.com/beryldb/php-beryl).
-* Check our [Node.js Driver](https://github.com/beryldb/node-beryl).
+* [PHP](https://github.com/beryldb/php-beryl).
+* [Node.js](https://github.com/beryldb/node-beryl).
 
 ## First queries
 
 You may want to learn more about BerylDB and run your first queries using
 Beryl-cli:
 
-* **set** is used to define a key. 
-* **get** is used to retrieve a key.
-* use **del** to remove a key.
-* use **exists** to verify whether a given key exists.
-* **strlen** is used to obtain a key's length.
+* **SET** is used to define a key. 
+* **GET** is used to retrieve a key.
+* use **DEL** to remove a key.
+* use **EXISTS** to verify whether a given key exists.
+* **STRLEN** is used to obtain a key's length.
 
 ```
-beryl> set hello "world"
+beryl> SET hello "world"
 OK
-beryl> get hello
+beryl> GET hello
 "world"
-beryl> strlen hello
+beryl> STRLEN hello
 5
-beryl> ismatch hello "worl?"
+beryl> ISMATCH hello "worl?"
 1
-beryl> del hello
+beryl> DEL hello
 OK
-beryl> exists hello
+beryl> EXISTS hello
 0
 ```
 
 You can also run the **ls** command to obtain a counter in all structures:
 
 ```
-beryl> ls
+beryl> LS
 +-----------------+----------------------+
 | Type            | Count                |
 +-----------------+----------------------+
@@ -176,7 +176,7 @@ beryl> ls
 To search all keys:
 
 ```
-beryl> search *
+beryl> SEARCH *
 +-----------------+----------------------+
 | Key             | Value                |
 +-----------------+----------------------+
@@ -189,7 +189,7 @@ Take a look at all BerylDB's commands [here](https://docs.beryl.dev/using/comman
 
 ## Coremodules and Modules
 
-Beryl is mainly divided into two components: core modules and modules. These
+BerylDB is mainly divided into two components: core modules and modules. These
 can be found in these directories:
 
 * `src/coremodules`: Contains Beryl's core modules. These are required to
