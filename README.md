@@ -202,8 +202,7 @@ functionalities. For instance, [core_keys](https://github.com/beryldb/beryldb/tr
 handles the SET and GET commands.
 
 In the other hand, modules are optional components developed either by the Beryl team
-or by third party developers. A good example of this can be [Hop](https://github.com/beryldb/beryldb/blob/unstable/src/modules/m_hop.cpp).
-Hop allows users to unsubscribe and subscribe to a channel in just one command. 
+or by third party developers. 
 
 Feel free to code and submit your own modules.
 
@@ -227,7 +226,7 @@ Inside the root directory, you will find:
 * `make`: Contains several Perl-based functions to compile BerylDB.
 
 NOTE: BerylDB has changed a bit. Some functions and file names may have
-changed. Hence, BerylDB's documentation may be closer to the ``stable`` branch.
+changed. Hence, BerylDB's documentation may be closer to the ``1.0`` branch.
 Nonetheless, the core structure is the same, tested extensively.
 
 ## Contributing
