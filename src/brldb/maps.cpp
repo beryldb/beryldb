@@ -110,6 +110,8 @@ void hfind_query::Run()
                                                 std::shared_ptr<hfind_query> request = std::make_shared<hfind_query>();
                                                 request->user = this->user;
                                                 request->partial = true;                                  
+                                                request->key    = this->key;
+                                                
                                                 request->subresult = tracker;
                                                 request->VecData = result;
                                                 result.clear();
@@ -134,6 +136,7 @@ void hfind_query::Run()
                                         std::shared_ptr<hfind_query> request = std::make_shared<hfind_query>();
                                         request->user = this->user;
                                         request->partial = true;
+                                        request->key    = this->key;
                                         request->subresult = tracker;
                                         request->VecData = result;
                                         result.clear();
@@ -154,7 +157,7 @@ void hfind_query::Run()
 
 void hfind_query::Process()
 {
-        Dispatcher::VectorFlush(false, "Map", this);
+        Dispatcher::VectorFlush(false, this->key, this);
 }
 
 void hset_query::Run()
@@ -431,6 +434,8 @@ void hlist_query::Run()
                                                 std::shared_ptr<hlist_query> request = std::make_shared<hlist_query>();
                                                 request->user = this->user;
                                                 request->partial = true;                                  
+                                                request->key    = this->key;
+                                                
                                                 request->subresult = ++tracker;
                                                 request->VecData = result_return;
                                                 result.clear();
@@ -454,6 +459,8 @@ void hlist_query::Run()
                                         std::shared_ptr<hlist_query> request = std::make_shared<hlist_query>();
                                         request->user = this->user;
                                         request->partial = true;
+                                        request->key    = this->key;
+                                        
                                         request->subresult = ++tracker;
                                         request->VecData = result_return;
                                         result.clear();
@@ -514,6 +521,8 @@ void hvals_query::Run()
                                                 request->user = this->user;
                                                 request->partial = true;                                  
                                                 request->subresult = ++tracker;
+                                                request->key    = this->key;
+                                                
                                                 request->VecData = result_return;
                                                 result.clear();
                                                 request->SetOK();
@@ -536,6 +545,8 @@ void hvals_query::Run()
                                         std::shared_ptr<hvals_query> request = std::make_shared<hvals_query>();
                                         request->user = this->user;
                                         request->partial = true;
+                                        request->key    = this->key;
+                                        
                                         request->subresult = ++tracker;
                                         request->VecData = result_return;
                                         result.clear();
@@ -556,7 +567,7 @@ void hvals_query::Run()
 
 void hvals_query::Process()
 {
-       Dispatcher::VectorFlush(true, "Map", this);
+       Dispatcher::VectorFlush(false, this->key, this);
 }
 
 void hgetall_query::Run()

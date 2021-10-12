@@ -880,6 +880,7 @@ void keys_query::Run()
                                     {
                                                 tracker++;
                                                 std::shared_ptr<keys_query> request = std::make_shared<keys_query>();
+                                                request->key	= this->key;
                                                 request->user = this->user;
                                                 request->partial = true;                                  
                                                 request->subresult = tracker;
@@ -904,6 +905,7 @@ void keys_query::Run()
                              {
                                         tracker++;
                                         std::shared_ptr<keys_query> request = std::make_shared<keys_query>();
+                                        request->key	= this->key;
                                         request->user = this->user;
                                         request->partial = true;
                                         request->subresult = tracker;
@@ -926,7 +928,7 @@ void keys_query::Run()
 
 void keys_query::Process()
 {
-        Dispatcher::VectorFlush(false, "Key", this);
+        Dispatcher::VectorFlush(false, this->key, this);
 }
 
 void append_query::Run()

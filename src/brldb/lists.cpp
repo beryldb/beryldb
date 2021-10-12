@@ -155,7 +155,7 @@ void lkeys_query::Run()
 
 void lkeys_query::Process()
 {
-       Dispatcher::VectorFlush(false, "List", this);
+       Dispatcher::VectorFlush(false, this->key, this);
 }
 
 void lpush_query::Run()
@@ -518,6 +518,8 @@ void lget_query::Run()
                                     if (aux_counter % ITER_LIMIT == 0)
                                     {
                                                 std::shared_ptr<lget_query> request = std::make_shared<lget_query>();
+                                                request->key    = this->key;
+
                                                 request->user = this->user;
                                                 request->partial = true;                                  
                                                 request->subresult = ++tracker;
@@ -543,6 +545,8 @@ void lget_query::Run()
                                         std::shared_ptr<lget_query> request = std::make_shared<lget_query>();
                                         request->user = this->user;
                                         request->partial = true;
+                                        request->key    = this->key;
+                                        
                                         request->subresult = ++tracker;
                                         request->VecData = result_return;
                                         result_return.clear();
@@ -570,7 +574,7 @@ void lget_query::Process()
                return;
         }
 
-       Dispatcher::VectorFlush(true, this->key, this);
+       Dispatcher::VectorFlush(false, this->key, this);
 }
 
 void lexist_query::Process()

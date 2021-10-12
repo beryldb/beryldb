@@ -27,7 +27,7 @@ COMMAND_RESULT CommandSlist::HandleLocal(LocalUser* user, const Params& paramete
 {
 	if (parameters.empty())
 	{
-		user->SendProtocol(ERR_INPUT2, BRLD_SYNTAX, syntax);
+		user->SendProtocol(ERR_INPUT, syntax);
 		return SUCCESS;
 	}
 
@@ -54,14 +54,16 @@ void CommandSlist::SendSlist(LocalUser* user, Channel* chan)
 
 	Dispatcher::JustAPI(user, BRLD_START_LIST);
 
-        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("%-30s", "Instance"));
-        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("%-30s", Dispatcher::Repeat("―", 30).c_str()));
+	Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-22s+", Dispatcher::Repeat("-", 23).c_str()));
+	Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("| %-22s|", chan->GetName().c_str()));
+	Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-22s+", Dispatcher::Repeat("-", 23).c_str()));
 
 	for (Channel::SubscriptionMap::const_iterator i = members.begin(); i != members.end(); ++i)
 	{
-		std::string instance = i->first->instance;
-                Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("%-30s", instance.c_str()), Daemon::Format("%s", instance.c_str()));
+		std::string const instance = i->first->instance;
+		Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("| %-22s|", instance.c_str()), Daemon::Format("%s", instance.c_str()));
 	}
 
+	Dispatcher::JustEmerald(user, BRLD_END_LIST, Daemon::Format("+%-22s+", Dispatcher::Repeat("-", 23).c_str()));
         Dispatcher::JustAPI(user, BRLD_END_LIST);
 }

@@ -97,7 +97,7 @@ void vfind_query::Run()
 
 void vfind_query::Process()
 {
-        Dispatcher::VectorFlush(false, "Vector", this);
+        Dispatcher::VectorFlush(false, this->key, this);
 }
 
 void vsort_query::Process()
@@ -266,7 +266,7 @@ void vkeys_query::Run()
 
 void vkeys_query::Process()
 {
-       Dispatcher::VectorFlush(false, "Vector", this);
+       Dispatcher::VectorFlush(false, this->key, this);
 }
 
 void vresize_query::Run()
@@ -470,7 +470,7 @@ void vget_query::Process()
                return;
         }
 
-        Dispatcher::VectorFlush(true, this->key, this);
+        Dispatcher::VectorFlush(false, this->key, this);
 }
 
 void vcount_query::Run()

@@ -75,6 +75,7 @@ class ExportAPI Notifier
          * @return:
          *
          *         - bool
+         *
          *	       · true       : User added successfuly.
          *             · false	    : An error has occured.
          */
@@ -91,6 +92,7 @@ class ExportAPI Notifier
          * @return:
  	 *
  	 *         -bool 
+ 	 *
          *             · true	: User is in NotifyList.
          *             · false	: User is not.
          */    
