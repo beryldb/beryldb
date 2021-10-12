@@ -210,9 +210,11 @@ template <unsigned int NumStaticParams, bool SendEmpty>
 class Numeric::ParamBuilder : public GenericParamBuilder<NumStaticParams, SendEmpty, SendProtocolSink>
 {
  public:
+ 
 	ParamBuilder(LocalUser* user, unsigned int num)
 		: ::Numeric::GenericParamBuilder<NumStaticParams, SendEmpty, SendProtocolSink>(SendProtocolSink(user), num, user->instance.size())
 	{
+	
 	}
 };
 

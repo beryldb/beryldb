@@ -720,7 +720,7 @@ void Dispatcher::VectorFlush(bool comillas, const std::string& title, QueryBase*
                        Dispatcher::JustEmerald(query->user, BRLD_OK, PROCESS_EMPTY);
                        return;
                 }
-
+                
                 Dispatcher::JustEmerald(query->user, BRLD_START_LIST, Daemon::Format("+%-22s+", Dispatcher::Repeat("-", 23).c_str()));
                 Dispatcher::JustEmerald(query->user, BRLD_START_LIST, Daemon::Format("| %-22s|", title.c_str()));
                 Dispatcher::JustEmerald(query->user, BRLD_START_LIST, Daemon::Format("+%-22s+", Dispatcher::Repeat("-", 23).c_str()));

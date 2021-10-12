@@ -24,12 +24,12 @@ class ExportAPI Helpers
          * 
          * @parameters:
 	 *
-	 *         · string key: Key to read.
-	 *         · def: Default value, in case string is unable to read. (false).
+	 *         · string	: Key to read.
+	 *         · bool	: Default value, in case provided string cannot be read. (false).
 	 * 
          * @return:
  	 *
-         *         · Boolean.
+         *         · bool
          */        
          
          static bool as_bool(const std::string &key, bool def = false);
@@ -39,11 +39,11 @@ class ExportAPI Helpers
          * 
          * @parameters:
 	 *
-	 *         · bool: Boolean to read.
+	 *         · bool	: Boolean to read.
 	 * 
          * @return:
  	 *
-         *         · String: False or true.
+         *         · String	: False or true.
          */           
          
          static std::string to_bool(bool boolean);
@@ -53,10 +53,10 @@ class ExportAPI Helpers
          * 
          * @parameters:
 	 *
-	 *         · user: User requesting a given query.
-	 *         · base: Base query.
-	 *         · key: Key to add.
-	 *         · allow: Allow an invalid key (ie with wildcards)
+	 *         · user	: User requesting a given query.
+	 *         · QueryBase	: Base query.
+	 *         · string	: Key to add.
+	 *         · bool	: Allow an invalid key (ie with wildcards)
          */    
    
          static void make_query(User* user, std::shared_ptr<QueryBase> base, const std::string& key = "", bool allow = false);     
@@ -80,12 +80,12 @@ class ExportAPI Helpers
          * 
          * @parameters:
 	 *
-	 *         · type: Request base (1, 2, 3, ..).
-	 *         · plural: Whether to add the 's' at the end.
+	 *         · string	: Request base (1, 2, 3, ..).
+	 *         · bool	: Whether to add the 's' at the end.
 	 * 
          * @return:
  	 *
-         *         · string: Human readable format (MAP, GEOS, LISTS, ..).
+         *         · string	: Human readable format (MAP, GEOS, LISTS, ..).
          */    
          
          static std::string TypeString(const std::string& type, bool plural = false);

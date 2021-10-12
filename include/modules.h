@@ -330,8 +330,8 @@ class ExportAPI Module : public Discarder, public usecountbase
          * 
          * @parameters:
 	 *
-	 *         · user: User disconnecting.
-	 *         · quitmsg: Reason of exiting.
+	 *         · User	: User disconnecting.
+	 *         · string	: Reason of exiting.
          */    
 
 	virtual void OnUserExit(User* user, const std::string &message);
@@ -341,7 +341,7 @@ class ExportAPI Module : public Discarder, public usecountbase
          * 
          * @parameters:
 	 *
-	 *         · LocalUser: User disconnecting.
+	 *         · LocalUser  : User disconnecting.
          */    	
          
 	virtual void OnInstanceDisconnect(LocalUser* local);
@@ -363,9 +363,9 @@ class ExportAPI Module : public Discarder, public usecountbase
          *
          * @parameters:
          *
-         *         · Subscription: Membership class.
-         *         · sync: True if channel is synced between servers.
-         *         · created: true if this channel is created.
+         *         · Subscription	: Membership class.
+         *         · bool		: True if channel is synced between servers.
+         *         · bool		: true if this channel is created.
          */
 
 	virtual void OnUserJoin(Subscription* memb, bool sync, bool created, DiscardList& except_list);
@@ -375,7 +375,7 @@ class ExportAPI Module : public Discarder, public usecountbase
          * 
          * @parameters:
 	 *
-	 *         · Memb: Membership (user-chan relationship).
+	 *         · Subscription	: Membership (user-chan relationship).
          */    
 	
 	virtual void OnPostJoin(Subscription* memb);
@@ -519,7 +519,7 @@ class ExportAPI Module : public Discarder, public usecountbase
          * 
          * @parameters:
 	 *
-	 *         · reason: Shutdown reason.
+	 *         · string	: Shutdown reason.
          */    
          	
 	virtual void OnHalt(const std::string& reason);
@@ -589,13 +589,13 @@ class ExportAPI ModuleHandler : public safecast<ModuleHandler>
          * 
          * @parameters:
 	 *
-	 *         · filename: File to load.
-	 *         · nextloop: Whether to load this module in the next loop.
+	 *         · string	: File to load.
+	 *         · bool	: Whether to load this module in the next loop.
 	 * 
          * @return:
  	 *
-         *         · True: Module loaded.
-         *         · False: Unable to load module.
+         *         · True	: Module loaded.
+         *         · False	: Unable to load module.
          */    
          
 	bool Load(const std::string& filename, bool nextloop = false);
@@ -621,7 +621,8 @@ class ExportAPI ModuleHandler : public safecast<ModuleHandler>
 	 * Checks if a module can be unloaded.
 	 * 
 	 * @parameters: 
-	 *          · Module to be unloaded.
+	 *
+	 *          · Module*	:	Module to be unloaded.
 	 */
 
 	bool CheckUnload(Module* module);
@@ -630,9 +631,12 @@ class ExportAPI ModuleHandler : public safecast<ModuleHandler>
 	 * Finds a module by a given name.
 	 *
 	 * @parameters:
-	 *         · name: Name to look for.
+	 *
+	 *         · string	: Name to look for.
+	 *
 	 * @returns:
-	 *         · A pointer referencing given module.
+	 *
+	 *         · Module*	: A pointer referencing given module.
 	 */
 
 	Module* Find(const std::string &name);
@@ -640,7 +644,6 @@ class ExportAPI ModuleHandler : public safecast<ModuleHandler>
 	void AttachService(ServiceProvider&);
 
 	void UnAttachService(ServiceProvider&);
-
 	 
 	void AttachServices(const ServiceList& list);
 

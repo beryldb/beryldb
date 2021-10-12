@@ -65,7 +65,7 @@ class ExportAPI Timer
          * 
          * @parameters:
 	 *
-	 *         · time_t: Next schedule.
+	 *         · time_t	: Next schedule.
          */    
          
 	void SetSchedule(time_t nextschedule)
@@ -94,8 +94,8 @@ class ExportAPI Timer
          * 
          * @return:
  	 *
-         *         · uint: Seconds between this Run()
-         *                 and the next one.
+         *         · uint	: Seconds between this Run()
+         *                 	  and the next one.
          */    		
          
  	 unsigned int as_interval() const
@@ -134,8 +134,8 @@ class ExportAPI TickManager : public safecast<TickManager>
          * 
          * @parameters:
 	 *
-	 *         · timer: Class inherting timer that will be added
-	 *                  to pending timers.
+	 *         · Timer	: Class inherting timer that will be added
+	 *            	          to pending timers.
          */    
 	
 	void Add(Timer* timer);
@@ -145,7 +145,7 @@ class ExportAPI TickManager : public safecast<TickManager>
          * 
          * @parameters:
 	 *
-	 *         · timer: Timer to remove.
+	 *         · Timer	: Timer to remove.
          */    	
          
 	void Remove(Timer* timer);
@@ -155,7 +155,7 @@ class ExportAPI TickManager : public safecast<TickManager>
          * 
          * @return:
  	 *
-         *         · unsigned int: Timers' size.
+         *         · uint	: Timers' size.
          */    
          	
 	unsigned int Count()

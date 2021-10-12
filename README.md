@@ -8,7 +8,7 @@
 [![Discord Server](https://img.shields.io/discord/823028202318200912?color=7289da&logo=discord "Discord Server")](https://discord.gg/GRCEuMdYRt)
 <br>
 
-This README is a brief introduction to Beryl. For extended information, you
+This README is a brief introduction to BerylDB. For extended information, you
 can visit our documentation site at [docs.beryl.dev](https://docs.beryl.dev/).
 
 ## Join our community 👋
@@ -30,15 +30,15 @@ are problem solvers and welcome people having this vision 👍
 
 ## What is BerylDB?
 
-Beryl is a data structure server. Our database provides access to structures via a 
+BerylDB is a data structure server. Our database provides access to structures via a 
 wide range of commands, which are later queued, processed, and dispatched. 
 The server is written in C++ and is powered by [RocksDB](https://github.com/facebook/rocksdb).
 
-With Beryl, users have access to lists, maps, keys, and channel
+With BerylDB, users have access to lists, maps, keys, and channel
 subscriptions for their clients. 
 Currently, the server is available for GNU/Linux, FreeBSD and macOS.
 
-* Check Beryl's [full list of commands](https://docs.beryl.dev/using/commands/).
+* Check BerylDB's [full list of commands](https://docs.beryl.dev/using/commands/).
 * We are on [Twitter](https://twitter.com/beryldb).
 
 A robust attention to performance and code cleanliness is an ongoing
@@ -47,14 +47,14 @@ minimum resources.
 
 ## Why use it?
 
-Beryl simplifies your system by allowing you to write fewer lines of code to store, retrieve, and manage data in your apps. 
+BerylDB simplifies your system by allowing you to write fewer lines of code to store, retrieve, and manage data in your apps. 
 For instance, if your app relies on sessions to keep users connected,
-you may use Beryl's key-value data storage. Then remove expiring keys with Beryl's automatic expire managing system.
+you may use BerylDB's key-value data storage. Then remove expiring keys with Beryl's automatic expire managing system.
 
 ## Installation
 
-We recommend building Beryl from the source. A guide on how to do this is available on [the Beryl docs site](https://docs.beryl.dev/using/installation/).
-Beryl's development branches are available in [our GitHub repository](https://github.com/beryldb/beryldb).
+We recommend building BerylDB from the source. A guide on how to do this is available on [the BerylDB docs site](https://docs.beryl.dev/using/installation/).
+BerylDB's development branches are available in [our GitHub repository](https://github.com/beryldb/beryldb).
 
 NOTE: When running 'make', you should use the '-j4' argument, which allows you to compile 
 using 4 cores. Feel free to change this number according to your CPU.
@@ -78,7 +78,7 @@ yum install git rocksdb-devel.x86_64
 brew install rocksdb 
 ```
 
-Clone Beryl's latest stable version:
+Clone BerylDB's latest stable version:
 
 ```
 git clone --branch 1.0 https://github.com/beryldb/beryldb.git 
@@ -92,22 +92,22 @@ You may now configure BerylDB following these quick steps:
 make -j4 install
 ```
 
-Beryl is compiled in verbose level by default. If you prefer to build with minimal
+BerylDB is compiled in verbose level by default. If you prefer to build with minimal
 information, you can use:
 
 ```
 make -j4 install VERBOSE=0
 ```
 
-## Running Beryl
+## Running BerylDB
 
-To run Beryl using the default configuration, type:
+To run BerylDB using the default configuration, type:
 
 ```
 ./run/beryldb start
 ```
 
-**NOTE**: Beryl runs in the background by default. If you wish to avoid
+**NOTE**: BerylDB runs in the background by default. If you wish to avoid
 forking, you can run the server using nofork:
 
 ```
@@ -131,7 +131,7 @@ typically have the same name that its parent function.
 
 ## First queries
 
-You may want to learn more about Beryl and run your first queries using
+You may want to learn more about BerylDB and run your first queries using
 Beryl-cli:
 
 * **set** is used to define a key. 
@@ -221,13 +221,13 @@ created after configuring Beryl, is located in the root directory.
 
 Inside the root directory, you will find:
 
-* `src`: Contains Beryl's implementation, written in C++.
-* `include`: Contains Beryl's headers.
+* `src`: Contains BerylDB's implementation, written in C++.
+* `include`: Contains BerylDB's headers.
 * `etc`: Libraries developed by 3rd party organizations.
 * `make`: Contains several Perl-based functions to compile BerylDB.
 
 NOTE: BerylDB has changed a bit. Some functions and file names may have
-changed. Hence, Beryl's documentation may be closer to the ``stable`` branch.
+changed. Hence, BerylDB's documentation may be closer to the ``stable`` branch.
 Nonetheless, the core structure is the same, tested extensively.
 
 ## Contributing

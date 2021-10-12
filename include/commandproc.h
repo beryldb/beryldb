@@ -105,6 +105,8 @@ class ExportAPI CommandHandler : public safecast<CommandHandler>
 	 * 
          * @return:
  	 *
+ 	 *       - bool
+ 	 *
          *         · True	: Command added.
          *         · False	: Unable to add command.
          */    
@@ -116,7 +118,7 @@ class ExportAPI CommandHandler : public safecast<CommandHandler>
          * 
          * @parameters:
 	 *
-	 *         · Command: Command class to remove.
+	 *         · Command    : Command class to remove.
          */    
          
 	 void Remove(Command* x);
