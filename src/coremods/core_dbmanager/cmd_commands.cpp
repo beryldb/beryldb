@@ -346,7 +346,7 @@ COMMAND_RESULT CommandDBCreate::Handle(User* user, const Params& parameters)
              return SUCCESS;
       }
       
-      user->SendProtocol(ERR_INPUT, PROCESS_ALREADY);
+      user->SendProtocol(ERR_INPUT, PROCESS_ERROR);
       return FAILED;
 }
 

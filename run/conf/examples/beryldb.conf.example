@@ -34,7 +34,7 @@
 #  	      Although we recommend to set this value to 2K.
 #	      Default value for maxclients is 1500.
 
-<settings maxclients="1500">
+<settings maxclients="5000">
 
 # Logging ################################################
 #

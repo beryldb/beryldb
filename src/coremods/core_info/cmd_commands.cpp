@@ -104,14 +104,16 @@ COMMAND_RESULT CommandCommands::Handle(User* user, const Params& parameters)
 
         Dispatcher::JustAPI(user, BRLD_START_LIST);
 
-        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("%-30s | %-10s", "Command", "Syntax"));
-        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("%-30s | %-10s", Dispatcher::Repeat("―", 30).c_str(), Dispatcher::Repeat("―", 10).c_str()));
+        Dispatcher::JustEmerald(user, BRLD_END_LIST, Daemon::Format("+%-30s+%-50s+", Dispatcher::Repeat("-", 31).c_str(), Dispatcher::Repeat("-", 51).c_str()));
+        Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("| %-30s| %-50s|", "Command", "Syntax"));
+        Dispatcher::JustEmerald(user, BRLD_END_LIST, Daemon::Format("+%-30s+%-50s+", Dispatcher::Repeat("-", 31).c_str(), Dispatcher::Repeat("-", 51).c_str()));
 	
 	for (std::map<std::string, std::string>::iterator i = list.begin(); i != list.end(); ++i)
 	{
-		Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("%-30s | %-10s", i->first.c_str(), i->second.c_str()), Daemon::Format("%s %s", i->first.c_str(), i->second.c_str()));
+		Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("| %-30s| %-50s|", i->first.c_str(), i->second.c_str()), Daemon::Format("%s %s", i->first.c_str(), i->second.c_str()));
 	}
-	
+
+	Dispatcher::JustEmerald(user, BRLD_END_LIST, Daemon::Format("+%-30s+%-50s+", Dispatcher::Repeat("-", 31).c_str(), Dispatcher::Repeat("-", 51).c_str()));
         Dispatcher::JustAPI(user, BRLD_END_LIST);
 	return SUCCESS;
 }

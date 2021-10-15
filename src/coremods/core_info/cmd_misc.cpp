@@ -59,12 +59,13 @@ COMMAND_RESULT CommandL::Handle(User* user, const Params& parameters)
 {
        Dispatcher::JustAPI(user, BRLD_START_LIST);
 
-       user->SendProtocol(BRLD_ITEM_LIST, Daemon::Format("%-9s | %s", "Connected", Daemon::HumanEpochTime(user->GetConnected()).c_str()));
-       user->SendProtocol(BRLD_ITEM_LIST, Daemon::Format("%-9s | %s", "Created", Daemon::HumanEpochTime(Kernel->Store->GetCreated()).c_str()).c_str());
-        
-       user->SendProtocol(BRLD_ITEM_LIST, Daemon::Format("%-9s | %s", "Version", Kernel->GetVersion(user->CanPerform('e')).c_str()).c_str());
-       user->SendProtocol(BRLD_ITEM_LIST, Daemon::Format("%-9s | %s", "Select", user->GetSelect().c_str()));
-       user->SendProtocol(BRLD_ITEM_LIST, Daemon::Format("%-9s | %s", "Agent", user->agent.c_str()));
+
+       Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-12s+%-25s+", Dispatcher::Repeat("-", 13).c_str(), Dispatcher::Repeat("-", 26).c_str()));
+       Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("| %-12s| %-25s|", "Connected", Daemon::HumanEpochTime(user->GetConnected()).c_str()), Daemon::Format("%s %s", "Connected", Daemon::HumanEpochTime(user->GetConnected()).c_str()));
+       Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("| %-12s| %-25s|", "Created", Daemon::HumanEpochTime(Kernel->Store->GetCreated()).c_str()), Daemon::Format("%s %s", "Connected", Daemon::HumanEpochTime(Kernel->Store->GetCreated()).c_str()));
+       Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("| %-12s| %-25s|", "Version", Kernel->GetVersion(user->CanPerform('e')).c_str()), Daemon::Format("%s %s", "Version", Kernel->GetVersion(user->CanPerform('e')).c_str()));
+       Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("| %-12s| %-25s|", "Select", user->GetSelect().c_str()), Daemon::Format("%s %s", "Select", user->GetSelect().c_str()));
+       Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("| %-12s| %-25s|", "Agent", user->agent.c_str()), Daemon::Format("%s %s", "Agent", user->agent.c_str()));
 
        /* Returns admin flags to requesting user, if any. */
 
@@ -72,25 +73,27 @@ COMMAND_RESULT CommandL::Handle(User* user, const Params& parameters)
 
        if (!exists.empty())
        {
-                user->SendProtocol(BRLD_ITEM_LIST, Daemon::Format("%-9s | %s", "Flags", exists.c_str()).c_str());
+              Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("| %-12s| %-25s|", "Flags", exists.c_str()), Daemon::Format("%s %s", "Flags", exists.c_str()));
        }
      
        if (user->GetDatabase())
        {
-             user->SendProtocol(BRLD_ITEM_LIST, Daemon::Format("%-9s | %s", "Database", user->GetDatabase()->GetName().c_str()));
+              Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("| %-12s| %-25s|", "Database", user->GetDatabase()->GetName().c_str()), Daemon::Format("%s %s", "Database", user->GetDatabase()->GetName().c_str()));
        }
         
        const std::string& all_groups = user->GetAllGroups();
         
        if (!all_groups.empty())
        {
-                user->SendProtocol(BRLD_ITEM_LIST, Daemon::Format("%-9s | %s", "Groups", all_groups.c_str()).c_str());
+               Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("| %-12s| %-25s|", "Groups", all_groups.c_str()), Daemon::Format("%s %s", "Groups", all_groups.c_str()));
        }
         
        /* Requesting user login. */
 
-       user->SendProtocol(BRLD_ITEM_LIST, Daemon::Format("%-9s | %s", "Instance", user->instance.c_str()));	
-       user->SendProtocol(BRLD_ITEM_LIST, Daemon::Format("%-9s | %s", "Login", user->login.c_str())); 
+       Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("| %-12s| %-25s|", "Instance", user->instance.c_str()), Daemon::Format("%s %s", "Instance", user->instance.c_str()));
+       Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("| %-12s| %-25s|", "Login", user->login.c_str()), Daemon::Format("%s %s", "Login", user->login.c_str()));
+
+       Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-12s+%-25s+", Dispatcher::Repeat("-", 13).c_str(), Dispatcher::Repeat("-", 26).c_str()));
 
        Dispatcher::JustAPI(user, BRLD_END_LIST);
        return SUCCESS;
