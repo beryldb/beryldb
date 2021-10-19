@@ -23,15 +23,18 @@ COMMAND_RESULT CommandMyChans::Handle(User* user, const Params& parameters)
 {
           Dispatcher::JustAPI(user, BRLD_START_LIST);
 
-          Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("%-30s", "Channel"));
-          Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("%-30s", Dispatcher::Repeat("―", 30).c_str()));
+          Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-22s+", Dispatcher::Repeat("-", 23).c_str()));
+          Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("| %-22s|", "Channel"));
+          Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-22s+", Dispatcher::Repeat("-", 23).c_str()));
 
           for (User::SubsList::iterator i = user->chans.begin(); i != user->chans.end(); i++)
           {
                     Channel* const chan = (*i)->chan;
-                    Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("%-30s", chan->GetName().c_str()), Daemon::Format("%s", chan->GetName().c_str()));
+                    Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("| %-22s|", chan->GetName().c_str()), Daemon::Format("%s", chan->GetName().c_str()));
+                    
           }
 
+          Dispatcher::JustEmerald(user, BRLD_END_LIST, Daemon::Format("+%-22s+", Dispatcher::Repeat("-", 23).c_str()));
           Dispatcher::JustAPI(user, BRLD_END_LIST);
           return SUCCESS;
 }
@@ -53,14 +56,18 @@ COMMAND_RESULT CommandChans::Handle(User* user, const Params& parameters)
           }
            
           Dispatcher::JustAPI(user, BRLD_START_LIST);
-          Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("%-30s", "Channel"));
-          Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("%-30s", Dispatcher::Repeat("―", 30).c_str()));
+
+          Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-22s+", Dispatcher::Repeat("-", 23).c_str()));
+          Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("| %-22s|", "Channel"));
+          Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-22s+", Dispatcher::Repeat("-", 23).c_str()));
            
           for (User::SubsList::iterator i = found->chans.begin(); i != found->chans.end(); i++)
           {
                   Channel* const chan = (*i)->chan;
-                  Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("%-30s", chan->GetName().c_str()), Daemon::Format("%s", chan->GetName().c_str()));
+                  Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("| %-22s|", chan->GetName().c_str()), Daemon::Format("%s", chan->GetName().c_str()));
           }
+
+          Dispatcher::JustEmerald(user, BRLD_END_LIST, Daemon::Format("+%-22s+", Dispatcher::Repeat("-", 23).c_str()));
 
           Dispatcher::JustAPI(user, BRLD_END_LIST);
           return SUCCESS;

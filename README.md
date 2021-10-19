@@ -45,6 +45,8 @@ A robust attention to performance and code cleanliness is an ongoing
 priority when developing BerylDB. Our server aims at being crash-free while utilizing
 minimum resources.
 
+![Data](https://docs.beryl.dev/img/model.png)
+
 ## Why use it?
 
 BerylDB simplifies your system by allowing you to write fewer lines of code to store, retrieve, and manage data in your apps. 

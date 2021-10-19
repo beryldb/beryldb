@@ -89,12 +89,15 @@ inline bool is_correct(const std::string& str)
  * 
  * @parameters:
  *
- *         · string str: Number to check.
- *         · allowdots: Include floats.
+ *         · string	: Number to check.
+ *         · allowdots	: Include floats.
  * 
  * @return:
  *
- *         · bool: True if is number, false if not.
+ *       - bool	
+ *	       
+ *		 true   : It is a number.
+ *		 false  : Not a number.
  */ 
 
 inline bool is_number(const std::string& str, bool allowdots = false)
@@ -130,12 +133,14 @@ inline bool is_number(const std::string& str, bool allowdots = false)
  * 
  * @parameters:
  *
- *         · string str: Number to check.
+ *         · string	: Number to check.
  * 
  * @return:
  *
- *         · True: Positive number.
- *         · False: Not positive.
+ *	 - bool:
+ *
+ *         · true	: Positive number.
+ *         · false	: Not positive.
  */
 
 inline bool is_positive_number(const std::string& str)
@@ -156,12 +161,14 @@ inline bool is_positive_number(const std::string& str)
  * 
  * @parameters:
  *
- *         · string str: Number to check.
+ *         · string	: Number to check.
  * 
  * @return:
  *
- *         · True: Positive number.
- *         · False: Not positive.
+ *	- bool
+ *
+ *         · true	: Positive number.
+ *         · false	: Not positive.
  */
 
 inline bool is_zero_or_great(const std::string& str)
@@ -184,12 +191,14 @@ inline bool is_zero_or_great(const std::string& str)
  * 
  * @parameters:
  *
- *         · string str: Number to check.
+ *         · string	: Number to check.
  * 
  * @return:
  *
- *         · True: Positive number.
- *         · False: Not positive.
+ *        - bool
+ *
+ *         · true	: Positive number.
+ *         · false	: Not positive.
  */
 
 inline bool is_zero_or_great_or_mone(const std::string& str)
