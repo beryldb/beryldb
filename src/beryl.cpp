@@ -234,7 +234,7 @@ void Beryl::Initialize()
 	
         /* server name in bold. */
         
-        bprint(DONE, "Beryl is now running as '%s'", Daemon::Welcome(this->Config->ServerName).c_str());
+        bprint(DONE, "BerylDB is now running as '%s'", Daemon::Welcome(this->Config->ServerName).c_str());
 
 	/* Saves beryldb.pid file so we can later make calls to our bin */
 	

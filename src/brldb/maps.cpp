@@ -644,7 +644,7 @@ void hgetall_query::Run()
 
 void hgetall_query::Process()
 {
-     Dispatcher::MMapFlush(true, "Map", "Value", this);
+     Dispatcher::MMapFlush(false, "Hash", "Value", this);
 }
 
 
