@@ -574,7 +574,7 @@ void lget_query::Process()
                return;
         }
 
-       Dispatcher::VectorFlush(false, this->key, this);
+       Dispatcher::VectorFlush(true, this->key, this);
 }
 
 void lexist_query::Process()
