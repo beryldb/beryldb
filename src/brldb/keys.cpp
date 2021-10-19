@@ -784,7 +784,7 @@ void search_query::Run()
 
 void search_query::Process()
 {
-        Dispatcher::MMapFlush(false, "Key", "Value", this);
+        Dispatcher::MMapFlush(true, "Key", "Value", this);
 }
 
 void keys_query::Run()

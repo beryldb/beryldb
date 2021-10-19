@@ -58,7 +58,7 @@ COMMAND_RESULT CommandChans::Handle(User* user, const Params& parameters)
           Dispatcher::JustAPI(user, BRLD_START_LIST);
 
           Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-22s+", Dispatcher::Repeat("-", 23).c_str()));
-          Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("| %-22s|", "Channel"));
+          Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("| %-22s|", found->instance.c_str()));
           Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-22s+", Dispatcher::Repeat("-", 23).c_str()));
            
           for (User::SubsList::iterator i = found->chans.begin(); i != found->chans.end(); i++)
