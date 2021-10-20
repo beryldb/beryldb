@@ -117,7 +117,7 @@ forking, you can run the server using nofork:
 ```
 
 Great! You may now run your very first BerylDB command using
-[Beryl-cli](https://github.com/beryldb/beryldb-cli).
+[beryl-cli](https://github.com/beryldb/beryldb-cli).
 
 Keep in mind that BerylDB uses port **6378** by default, so be sure to
 maintain that port unused before running the server.
@@ -128,19 +128,19 @@ Drivers are used to interact with a given BerylDB instance.
 If you are familiar with BerylDB, you may notice that driver's functions
 typically have the same name that its parent function.
 
-* [PHP](https://github.com/beryldb/php-beryl).
-* [Node.js](https://github.com/beryldb/node-beryl).
+* [PHP](https://github.com/beryldb/php-beryl) - Compatible with PHP > 7.3
+* [Node.js](https://github.com/beryldb/node-beryl)  - Compatible with node > 15
 
 ## First queries
 
 You may want to learn more about BerylDB and run your first queries using
-Beryl-cli:
+beryl-cli:
 
-* **SET** is used to define a key. 
-* **GET** is used to retrieve a key.
-* use **DEL** to remove a key.
-* use **EXISTS** to verify whether a given key exists.
-* **STRLEN** is used to obtain a key's length.
+* **[SET](https://docs.beryl.dev/commands/set.html)** is used to define a key. 
+* **[GET](https://docs.beryl.dev/commands/get.html)** is used to retrieve a key.
+* use **[DEL](https://docs.beryl.dev/commands/del.html)** to remove a key.
+* use **[EXISTS](https://docs.beryl.dev/commands/exists.html)** to verify whether a given key exists.
+* **[STRLEN](https://docs.beryl.dev/commands/strlen.html)** is used to obtain a key's length.
 
 ```
 beryl> SET hello "world"

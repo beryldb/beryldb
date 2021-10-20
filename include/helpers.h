@@ -43,7 +43,7 @@ class ExportAPI Helpers
 	 * 
          * @return:
  	 *
-         *         · String	: False or true.
+         *         · string	: False or true.
          */           
          
          static std::string to_bool(bool boolean);
