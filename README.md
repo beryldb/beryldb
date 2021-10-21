@@ -26,7 +26,7 @@ are problem solvers and welcome people having this vision 👍
  - 🙋 Become a QA: Test our software and report back ([Check our Google group](https://groups.google.com/g/beryldb)).
  - 💬 Get Involved and join our [Discord server](https://discord.gg/GRCEuMdYRt).
 
-![Logo](https://docs.beryl.dev/img/smaller.png??)
+![Logo](https://www.beryldb.com/smaller.png)
 
 ## What is BerylDB?
 
@@ -45,7 +45,7 @@ A robust attention to performance and code cleanliness is an ongoing
 priority when developing BerylDB. Our server aims at being crash-free while utilizing
 minimum resources.
 
-![Data](https://docs.beryl.dev/img/model.png)
+![Data](https://www.beryldb.com/model.png)
 
 ## Why use it?
 
@@ -138,7 +138,7 @@ beryl-cli:
 
 * **[SET](https://docs.beryl.dev/commands/set.html)** is used to define a key. 
 * **[GET](https://docs.beryl.dev/commands/get.html)** is used to retrieve a key.
-* use **[DEL](https://docs.beryl.dev/commands/del.html)** to remove a key.
+* **[DEL](https://docs.beryl.dev/commands/del.html)** is what you need when removing a key.
 * use **[EXISTS](https://docs.beryl.dev/commands/exists.html)** to verify whether a given key exists.
 * **[STRLEN](https://docs.beryl.dev/commands/strlen.html)** is used to obtain a key's length.
 
