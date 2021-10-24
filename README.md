@@ -38,7 +38,7 @@ With BerylDB, users have access to lists, maps, keys, and channel
 subscriptions for their clients. 
 Currently, the server is available for GNU/Linux, FreeBSD and macOS.
 
-* Check BerylDB's [full list of commands](https://docs.beryl.dev/using/commands/).
+* Check BerylDB's [full list of commands](https://docs.beryl.dev/commands/).
 * We are on [Twitter](https://twitter.com/beryldb).
 
 A robust attention to performance and code cleanliness is an ongoing
@@ -55,7 +55,7 @@ you may use BerylDB's key-value data storage. Then remove expiring keys with Ber
 
 ## Installation
 
-We recommend building BerylDB from the source. A guide on how to do this is available on [the BerylDB docs site](https://docs.beryl.dev/using/installation/).
+We recommend building BerylDB from the source. A guide on how to do this is available on [the BerylDB docs site](https://docs.beryl.dev/getstarted/).
 BerylDB's development branches are available in [our GitHub repository](https://github.com/beryldb/beryldb).
 
 NOTE: When running 'make', you should use the '-j4' argument, which allows you to compile 
@@ -187,7 +187,7 @@ beryl> SEARCH *
 +-----------------+----------------------+
 ```
 
-Take a look at all BerylDB's commands [here](https://docs.beryl.dev/using/commands/).
+Take a look at all BerylDB's commands [here](https://docs.beryl.dev/commands/).
 
 ## Coremodules and Modules
 
