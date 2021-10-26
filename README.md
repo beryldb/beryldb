@@ -5,7 +5,7 @@
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 [![Mailing List](https://img.shields.io/badge/email-google%20groups-4285F4 "beryldb@googlegroups.com")](https://groups.google.com/g/beryldb)
 [![Twitter](https://img.shields.io/twitter/follow/beryldb?color=%23179CF0&logo=twitter&style=flat-square "@beryldb on Twitter")](https://twitter.com/beryldb)
-[![Discord Server](https://img.shields.io/discord/823028202318200912?color=7289da&logo=discord "Discord Server")](https://discord.gg/GRCEuMdYRt)
+[![Discord Server](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/23f6w9sgAd)
 <br>
 
 This README is a brief introduction to BerylDB. For extended information, you
@@ -26,7 +26,7 @@ are problem solvers and welcome people having this vision 👍
  - 🙋 Become a QA: Test our software and report back ([Check our Google group](https://groups.google.com/g/beryldb)).
  - 💬 Get Involved and join our [Discord server](https://discord.gg/GRCEuMdYRt).
 
-![Logo](https://www.beryldb.com/smaller.png)
+![Logo](https://static.beryl.dev/smaller.png)
 
 ## What is BerylDB?
 
@@ -45,7 +45,7 @@ A robust attention to performance and code cleanliness is an ongoing
 priority when developing BerylDB. Our server aims at being crash-free while utilizing
 minimum resources.
 
-![Data](https://www.beryldb.com/model.png)
+![Data](https://static.beryl.dev/model.png)
 
 ## Why use it?
 
@@ -242,7 +242,7 @@ BSD license.
 
 * [Documentation](https://docs.beryl.dev)
 * [GitHub](https://github.com/beryldb/beryldb)
-* [Support/Discord](https://discord.gg/GRCEuMdYRt)
+* [Support/Discord](https://discord.gg/23f6w9sgAd)
 * [Twitter](https://twitter.com/beryldb)
 
 
