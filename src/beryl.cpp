@@ -24,7 +24,7 @@ int main(int argc, char** argv)
 	return 1;
 }
 
-Beryl::Beryl(int argc, char** argv) : ConfigFile(DEFAULT_CONFIG), Ready(false)
+Beryl::Beryl(int argc, char** argv) : ConfigFile(DEFAULT_CONFIG), Ready(false), timeout(1)
 {
 	/* Main link. */
 	
@@ -348,6 +348,8 @@ void Beryl::Loop()
 
 void Beryl::Timed(time_t current)
 {
+	this->timeout = 1;
+	
  	/* We call all pending timers to be delivered. */
 
         this->Tickers->Flush(current);

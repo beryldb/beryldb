@@ -353,6 +353,8 @@ void Beryl::Signalizers()
 
         signal(SIGINT, Beryl::Signalizer);
         signal(SIGTERM, Beryl::Signalizer);
+        signal(SIGUSR1, Beryl::Signalizer);
+        
 }
 
 void Beryl::VoidSignalManager(int)

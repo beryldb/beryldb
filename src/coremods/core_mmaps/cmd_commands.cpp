@@ -50,7 +50,7 @@ CommandMPush::CommandMPush(Module* Creator) : Command(Creator, "MPUSH", 3, 3)
        check_key        =       0;
        check_hash       =       1;
        group 		= 	'x';
-       syntax 		= 	"<map> <key> \"value\"";
+       syntax 		= 	"<map> <hash> \"value\"";
 }
 
 COMMAND_RESULT CommandMPush::Handle(User* user, const Params& parameters)
@@ -65,7 +65,7 @@ CommandMPushNX::CommandMPushNX(Module* Creator) : Command(Creator, "MPUSHNX", 3,
        check_key        =       0;
        check_hash       =       1;
        group 		= 	'v';
-       syntax 		= 	"<map> <key> \"value\"";
+       syntax 		= 	"<map> <hash> \"value\"";
 }
 
 COMMAND_RESULT CommandMPushNX::Handle(User* user, const Params& parameters)
@@ -92,7 +92,7 @@ CommandMDel::CommandMDel(Module* Creator) : Command(Creator, "MDEL", 2, 2)
         check_key       =       0;
         check_hash	=	1;
         group 		= 	'x';
-        syntax 		= 	"<map> <key>";
+        syntax 		= 	"<map> <hash>";
 }
 
 COMMAND_RESULT CommandMDel::Handle(User* user, const Params& parameters)
@@ -106,7 +106,7 @@ CommandMRepeats::CommandMRepeats(Module* Creator) : Command(Creator, "MREPEATS",
         check_key       =       0;
         check_hash      =       1;
         group 		= 	'x';
-        syntax 		= 	"<map> <key>";
+        syntax 		= 	"<map> <hash>";
 }
 
 COMMAND_RESULT CommandMRepeats::Handle(User* user, const Params& parameters)
@@ -149,7 +149,7 @@ CommandMIter::CommandMIter(Module* Creator) : Command(Creator, "MITER", 2, 4)
        check_key        =       0;
        check_hash       =       1;
        group  		= 	'x';
-       syntax 		= 	"<map> <key> <limit> <offset>";
+       syntax 		= 	"<map> <hash> <limit> <offset>";
 }
 
 COMMAND_RESULT CommandMIter::Handle(User* user, const Params& parameters)

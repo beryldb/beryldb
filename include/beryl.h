@@ -155,7 +155,9 @@ class ExportAPI Beryl
         void DaemonFork();
       
   public:
-	
+
+	int timeout;
+		
 	bool Ready;
 	
         /* Starts Beryl instance. */
