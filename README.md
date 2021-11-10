@@ -1,6 +1,6 @@
-<div align="center">
-![Logo](https://static.beryl.dev/smaller.png)
-</div>
+<p align="center">
+  <img src="https://static.beryl.dev/smaller.png">
+</p>
 
 # BerylDB, a lightweight database.
 
