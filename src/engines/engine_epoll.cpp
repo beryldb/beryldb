@@ -143,9 +143,6 @@ int SocketPool::Events()
 {
 	int i = epoll_wait(SocketHandler, &events[0], events.size(), 10);
         Kernel->Now();
-
-        
-        std::cout << "loop" << std::endl;
 	
 	for (int j = 0; j < i; j++)
 	{

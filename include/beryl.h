@@ -156,8 +156,6 @@ class ExportAPI Beryl
       
   public:
 
-	int timeout;
-		
 	bool Ready;
 	
         /* Starts Beryl instance. */
