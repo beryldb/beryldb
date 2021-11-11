@@ -106,7 +106,7 @@ class ModuleForceSubs : public Module
 
 	Version GetDescription() 
 	{
-		return Version("Adds the FORCEJOIN command, which allows managers to force instances to join one or more channels.", VF_OPTCOMMON | VF_BERYLDB);
+		return Version("Adds FORCEJOIN command.", VF_OPTCOMMON | VF_BERYLDB);
 	}
 };
 

@@ -27,14 +27,14 @@ bool ModuleHandler::Load(const std::string& name, bool nextloop)
 
 	if (!FileSystem::Exists(ModuleFile))
 	{
-		last_known_error = NOT_FOUND + ": " + filename;
+		last_known_error = NOT_FOUND;
                 bprint(ERROR, "%s", last_known_error.c_str());
 		return false;
 	}
 
 	if (Modules.find(filename) != Modules.end())
 	{
-		last_known_error = "Module " + filename + " already loaded.";
+		last_known_error = "MODULE_LOADED";
 	        bprint(ERROR, "%s", last_known_error.c_str());
 		return false;
 	}

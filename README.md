@@ -10,9 +10,6 @@
 [![Discord Server](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/23f6w9sgAd)
 <br>
 
-This README is a brief introduction to BerylDB. For extended information, you
-can visit our documentation site at [docs.beryl.dev](https://docs.beryl.dev/).
-
 ## What is BerylDB?
 
 BerylDB is a data structure server. Our database provides access to structures via a 
@@ -25,12 +22,16 @@ Currently, the server is available for GNU/Linux, FreeBSD and macOS.
 
 * Check BerylDB's [full list of commands](https://docs.beryl.dev/commands/).
 * We are on [Twitter](https://twitter.com/beryldb).
+* Learn more about our [Drivers](https://docs.beryl.dev/drivers/).
 
 A robust attention to performance and code cleanliness is an ongoing
 priority when developing BerylDB. Our server aims at being crash-free while utilizing
 minimum resources.
 
 ![Data](https://static.beryl.dev/model.png)
+
+This README is a brief introduction to BerylDB. For extended information, you
+can visit our documentation site at [docs.beryl.dev](https://docs.beryl.dev/).
 
 ## Why use it?
 
