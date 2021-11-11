@@ -1,32 +1,14 @@
-# BerylDB, a lightweight database.
+<p align="center">
+  <img src="https://static.beryl.dev/smaller.png">
+</p>
 
 <a target="_blank" href="https://github.com/beryldb/beryldb/actions"><img src="https://github.com/beryldb/beryldb/workflows/Linux%20build/badge.svg"></a>
 <a target="_blank" href="https://github.com/beryldb/beryldb/actions"><img src="https://github.com/beryldb/beryldb/workflows/macOS%20Build/badge.svg"></a>
 [![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)
 [![Mailing List](https://img.shields.io/badge/email-google%20groups-4285F4 "beryldb@googlegroups.com")](https://groups.google.com/g/beryldb)
 [![Twitter](https://img.shields.io/twitter/follow/beryldb?color=%23179CF0&logo=twitter&style=flat-square "@beryldb on Twitter")](https://twitter.com/beryldb)
-[![Discord Server](https://img.shields.io/discord/823028202318200912?color=7289da&logo=discord "Discord Server")](https://discord.gg/GRCEuMdYRt)
+[![Discord Server](https://badgen.net/badge/icon/discord?icon=discord&label)](https://discord.gg/23f6w9sgAd)
 <br>
-
-This README is a brief introduction to BerylDB. For extended information, you
-can visit our documentation site at [docs.beryl.dev](https://docs.beryl.dev/).
-
-## Join our community 👋
-
-We invite people from different backgrounds 🌈👨❤️ :raising_hand::older_man:  
-
-If you are just getting started as programmer, there are several ways that you can
-collaborate. There is no need to be a senior programmer. At BerylDB, we
-are problem solvers and welcome people having this vision 👍
-
-### How do I get involved?
- 
- - 🎓 Check our pending issues, or create your own.
- - 🌵 Contribute to our Drivers ([Node.js](https://github.com/beryldb/node-beryl), [PHP](https://github.com/beryldb/php-beryl), Python).
- - 🙋 Become a QA: Test our software and report back ([Check our Google group](https://groups.google.com/g/beryldb)).
- - 💬 Get Involved and join our [Discord server](https://discord.gg/GRCEuMdYRt).
-
-![Logo](https://www.beryldb.com/smaller.png)
 
 ## What is BerylDB?
 
@@ -40,12 +22,16 @@ Currently, the server is available for GNU/Linux, FreeBSD and macOS.
 
 * Check BerylDB's [full list of commands](https://docs.beryl.dev/commands/).
 * We are on [Twitter](https://twitter.com/beryldb).
+* Learn more about our [Drivers](https://docs.beryl.dev/drivers/).
 
 A robust attention to performance and code cleanliness is an ongoing
 priority when developing BerylDB. Our server aims at being crash-free while utilizing
 minimum resources.
 
-![Data](https://www.beryldb.com/model.png)
+![Data](https://static.beryl.dev/model.png)
+
+This README is a brief introduction to BerylDB. For extended information, you
+can visit our documentation site at [docs.beryl.dev](https://docs.beryl.dev/).
 
 ## Why use it?
 
@@ -64,41 +50,41 @@ using 4 cores. Feel free to change this number according to your CPU.
 * Installing dependencies in **Debian** based systems:
 
 ```
-sudo apt-get install librocksdb-dev build-essential
+$ sudo apt-get install librocksdb-dev build-essential
 ```
 
 * Installing dependencies in **Redhat** based systems:
 
 ```
-dnf install @development-tools
-yum install git rocksdb-devel.x86_64
+$ dnf install @development-tools
+$ yum install git rocksdb-devel.x86_64
 ```
 
 * Installing dependencies in **macOS**:
 
 ```
-brew install rocksdb 
+$ brew install rocksdb 
 ```
 
 Clone BerylDB's latest stable version:
 
 ```
-git clone --branch 1.0 https://github.com/beryldb/beryldb.git 
-cd beryldb/
+$ git clone --branch 1.0 https://github.com/beryldb/beryldb.git 
+$ cd beryldb/
 ```
 
 You may now configure BerylDB following these quick steps: 
 
 ```
-./configure
-make -j4 install
+$ ./configure
+$ make -j4 install
 ```
 
 BerylDB is compiled in verbose level by default. If you prefer to build with minimal
 information, you can use:
 
 ```
-make -j4 install VERBOSE=0
+$ make -j4 install VERBOSE=0
 ```
 
 ## Running BerylDB
@@ -106,14 +92,14 @@ make -j4 install VERBOSE=0
 To run BerylDB using the default configuration, type:
 
 ```
-./run/beryldb start
+$ ./run/beryldb start
 ```
 
 **NOTE**: BerylDB runs in the background by default. If you wish to avoid
 forking, you can run the server using nofork:
 
 ```
-./run/beryldb start --nofork
+$ ./run/beryldb start --nofork
 ```
 
 Great! You may now run your very first BerylDB command using
@@ -128,8 +114,8 @@ Drivers are used to interact with a given BerylDB instance.
 If you are familiar with BerylDB, you may notice that driver's functions
 typically have the same name that its parent function.
 
-* [PHP](https://github.com/beryldb/php-beryl) - Compatible with PHP > 7.3
-* [Node.js](https://github.com/beryldb/node-beryl)  - Compatible with node > 15
+* [PHP](https://github.com/beryldb/php-beryl) - Compatible with PHP >= 7.3
+* [Node.js](https://github.com/beryldb/node-beryl)  - Compatible with node >= 15
 
 ## First queries
 
@@ -160,7 +146,7 @@ beryl> EXISTS hello
 You can also run the **ls** command to obtain a counter in all structures:
 
 ```
-beryl> LS
+beryl> ls
 +-----------------+----------------------+
 | Type            | Count                |
 +-----------------+----------------------+
@@ -178,7 +164,7 @@ beryl> LS
 To search all keys:
 
 ```
-beryl> SEARCH *
+beryl> search *
 +-----------------+----------------------+
 | Key             | Value                |
 +-----------------+----------------------+
@@ -194,10 +180,10 @@ Take a look at all BerylDB's commands [here](https://docs.beryl.dev/commands/).
 BerylDB is mainly divided into two components: core modules and modules. These
 can be found in these directories:
 
-* `src/coremodules`: Contains Beryl's core modules. These are required to
+* `src/coremodules`: Contains BerylDB's core modules. These are required to
   		     run the server properly.
 
-* `src/modules`: Contains optional modules. Beryl can funcion without these.
+* `src/modules`: Contains optional modules. BerylDB can funcion without these.
 
 Core modules include those components that are required in order to run basic
 functionalities. For instance, [core_keys](https://github.com/beryldb/beryldb/tree/unstable/src/coremods/core_keys)
@@ -238,11 +224,26 @@ Beryl project in any form, such as in the form of pull requests via Github,
 a code snippet, or a patch, you will need to agree to release your work under the terms of the
 BSD license.
 
+## Join our community 👋
+
+We invite people from different backgrounds 🌈👨❤️ :raising_hand::older_man:  
+
+If you are just getting started as programmer, there are several ways that you can
+collaborate. There is no need to be a senior programmer. At BerylDB, we
+are problem solvers and welcome people having this vision 👍
+
+### How do I get involved?
+ 
+ - 🎓 Check our pending issues, or create your own.
+ - 🌵 Contribute to our Drivers ([Node.js](https://github.com/beryldb/node-beryl), [PHP](https://github.com/beryldb/php-beryl), Python).
+ - 🙋 Become a QA: Test our software and report back ([Check our Google group](https://groups.google.com/g/beryldb)).
+ - 💬 Get Involved and join our [Discord server](https://discord.gg/GRCEuMdYRt).
+
 ## External Links
 
 * [Documentation](https://docs.beryl.dev)
 * [GitHub](https://github.com/beryldb/beryldb)
-* [Support/Discord](https://discord.gg/GRCEuMdYRt)
+* [Support/Discord](https://discord.gg/23f6w9sgAd)
 * [Twitter](https://twitter.com/beryldb)
 
 

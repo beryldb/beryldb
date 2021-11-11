@@ -18,7 +18,7 @@ CommandVBack::CommandVBack(Module* Creator) : Command(Creator, "VBACK", 1, 1)
 {
        check_key        =       0;
        group 		= 	'l';
-       syntax 		= 	"<key>";
+       syntax 		= 	"<vector>";
 }
 
 COMMAND_RESULT CommandVBack::Handle(User* user, const Params& parameters)
@@ -31,7 +31,7 @@ CommandVFront::CommandVFront(Module* Creator) : Command(Creator, "VFRONT", 1, 1)
 {
        check_key        =       0;
        group 		= 	'l';
-       syntax 		= 	"<key>";
+       syntax 		= 	"<vector>";
 }
 
 COMMAND_RESULT CommandVFront::Handle(User* user, const Params& parameters)

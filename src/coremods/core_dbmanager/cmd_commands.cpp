@@ -227,7 +227,7 @@ COMMAND_RESULT CommandDB::Handle(User* user, const Params& parameters)
 
 CommandChange::CommandChange(Module* Creator) : Command(Creator, "CHANGE", 1, 1)
 {
-      
+      syntax = "<database>";
 }
 
 COMMAND_RESULT CommandChange::Handle(User* user, const Params& parameters)
@@ -258,9 +258,9 @@ COMMAND_RESULT CommandDBLIST::Handle(User* user, const Params& parameters)
 
       Dispatcher::JustAPI(user, BRLD_START_LIST);
 
-      Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-16s+%-29s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 30).c_str()));
-      Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("| %-16s| %-29s|", "Name", "Path"));
-      Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-16s+%-29s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 30).c_str()));
+      Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-16s+%-49s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 50).c_str()));
+      Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("| %-16s| %-49s|", "Name", "Path"));
+      Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-16s+%-49s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 50).c_str()));
        
       for (DataMap::const_iterator it = dbases.begin(); it != dbases.end(); ++it)
       {
@@ -277,11 +277,11 @@ COMMAND_RESULT CommandDBLIST::Handle(User* user, const Params& parameters)
                    }
             }
             
-            Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("| %-16s| %-29s", dbname.c_str(), dbpath.c_str()), Daemon::Format("%s %s", dbname.c_str(), dbpath.c_str()));
+            Dispatcher::ListDepend(user, BRLD_ITEM_LIST, Daemon::Format("| %-16s| %-49s|", dbname.c_str(), dbpath.c_str()), Daemon::Format("%s %s", dbname.c_str(), dbpath.c_str()));
       }     
       
       Dispatcher::JustAPI(user, BRLD_END_LIST);
-      Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-16s+%-29s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 30).c_str()));
+      Dispatcher::JustEmerald(user, BRLD_START_LIST, Daemon::Format("+%-16s+%-49s+", Dispatcher::Repeat("-", 17).c_str(), Dispatcher::Repeat("-", 50).c_str()));
       
       return SUCCESS;
 }

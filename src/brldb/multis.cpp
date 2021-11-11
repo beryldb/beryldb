@@ -307,7 +307,7 @@ void mkeys_query::Run()
 
 void mkeys_query::Process()
 {
-       Dispatcher::VectorFlush(false, "Multi", this);
+       Dispatcher::VectorFlush(false, this->key, this);
 }
 
 void mget_query::Run()
@@ -408,7 +408,7 @@ void mget_query::Process()
                return;
         }
 
-        Dispatcher::VectorFlush(false, "Multi", this);
+        Dispatcher::VectorFlush(false, this->key, this);
 }
 
 void mrepeats_query::Run()
@@ -576,7 +576,7 @@ void mgetall_query::Run()
 
 void mgetall_query::Process()
 {
-        Dispatcher::MMapFlush(true, "Multimap", "Value", this);
+        Dispatcher::MMapFlush(true, this->key, "Value", this);
 }
 
 void miter_query::Run()
@@ -652,6 +652,6 @@ void miter_query::Run()
 
 void miter_query::Process()
 {
-       Dispatcher::VectorFlush(true, "Key", this);
+       Dispatcher::VectorFlush(true, this->key, this);
 }
      

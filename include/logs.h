@@ -15,12 +15,12 @@
 
 enum log_level
 {
-	LOG_RAW   = 5,
-	LOG_DEBUG   = 10,
-	LOG_VERBOSE = 20,
-	LOG_DEFAULT = 30,
-	LOG_MISC  = 40,
-	LOG_NONE    = 50
+	LOG_RAW   	= 5,
+	LOG_DEBUG   	= 10,
+	LOG_VERBOSE 	= 20,
+	LOG_DEFAULT 	= 30,
+	LOG_MISC  	= 40,
+	LOG_NONE    	= 50
 };
 
 class ExportAPI FileHandler
@@ -71,7 +71,7 @@ class ExportAPI LogStream : public Discarder
          * 
          * @parameters:
 	 *
-	 *         · lvl: new level.
+	 *         · log_level	: new level.
          */    	
          
 	void ChangeLevel(log_level lvl) 
@@ -163,9 +163,9 @@ class ExportAPI LogHandler : public safecast<LogHandler>
          * 
          * @parameters:
 	 *
-	 *         · type: Log type, for instance: "STARTUP"
-	 *         · log_level: For instance: DEFAULT
-	 *         · msg: Message to write.
+	 *         · string	: Log type, for instance: "STARTUP"
+	 *         · log_level	: For instance: DEFAULT
+	 *         · string	: Message to write.
          */    
          
 	void Log(const std::string &type, log_level loglevel, const std::string &msg);
