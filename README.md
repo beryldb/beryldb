@@ -116,6 +116,7 @@ typically have the same name that its parent function.
 
 * [PHP](https://github.com/beryldb/php-beryl) - Compatible with PHP >= 7.3
 * [Node.js](https://github.com/beryldb/node-beryl)  - Compatible with node >= 15
+* [Python](https://github.com/beryldb/python-beryl) - Compatible with Python >= 3
 
 ## First queries
 
@@ -235,7 +236,7 @@ are problem solvers and welcome people having this vision 👍
 ### How do I get involved?
  
  - 🎓 Check our pending issues, or create your own.
- - 🌵 Contribute to our Drivers ([Node.js](https://github.com/beryldb/node-beryl), [PHP](https://github.com/beryldb/php-beryl), Python).
+ - 🌵 Contribute to our Drivers ([Node.js](https://github.com/beryldb/node-beryl), [PHP](https://github.com/beryldb/php-beryl), [Python](https://github.com/beryldb/python-beryl)).
  - 🙋 Become a QA: Test our software and report back ([Check our Google group](https://groups.google.com/g/beryldb)).
  - 💬 Get Involved and join our [Discord server](https://discord.gg/GRCEuMdYRt).
 
