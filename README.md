@@ -80,13 +80,6 @@ $ ./configure
 $ make -j4 install
 ```
 
-BerylDB is compiled in verbose level by default. If you prefer to build with minimal
-information, you can use:
-
-```
-$ make -j4 install VERBOSE=0
-```
-
 ## Running BerylDB
 
 To run BerylDB using the default configuration, type:
@@ -238,7 +231,7 @@ are problem solvers and welcome people having this vision 👍
  - 🎓 Check our pending issues, or create your own.
  - 🌵 Contribute to our Drivers ([Node.js](https://github.com/beryldb/node-beryl), [PHP](https://github.com/beryldb/php-beryl), [Python](https://github.com/beryldb/python-beryl)).
  - 🙋 Become a QA: Test our software and report back ([Check our Google group](https://groups.google.com/g/beryldb)).
- - 💬 Get Involved and join our [Discord server](https://discord.gg/GRCEuMdYRt).
+ - 💬 Get to know our team and join our [Discord server](https://discord.gg/23f6w9sgAd).
 
 ## External Links
 

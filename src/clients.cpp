@@ -332,7 +332,7 @@ void ClientManager::Flush(time_t current)
 			{
 				if ((current % 10) == 0)
 				{
-					VerifyPingTimeouts(curr);
+			//		VerifyPingTimeouts(curr);
 				}
 			}	
 			
