@@ -39,7 +39,7 @@ namespace
 		}
 	};
 
-	void VerifyPingTimeouts(LocalUser* user)
+	/*void VerifyPingTimeouts(LocalUser* user)
 	{
 		if (Kernel->Now() < user->next_ping_check)
 		{
@@ -74,7 +74,7 @@ namespace
 		user->Send(Kernel->GetBRLDEvents().ping, ping);
 		user->lastping = 0;
 		user->next_ping_check = Kernel->Now() + PING_INTVL;
-	}
+	}*/
 
 	void VerifyRegistrationTimeout(LocalUser* user)
 	{
@@ -332,7 +332,7 @@ void ClientManager::Flush(time_t current)
 			{
 				if ((current % 10) == 0)
 				{
-					VerifyPingTimeouts(curr);
+			//		VerifyPingTimeouts(curr);
 				}
 			}	
 			

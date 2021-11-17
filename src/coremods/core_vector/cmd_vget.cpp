@@ -19,7 +19,7 @@ CommandVExist::CommandVExist(Module* Creator) : Command(Creator, "VEXISTS", 2, 2
         check_value     =       true;
         check_key       =       0;
         group 		= 	'v';
-        syntax 		= 	"<key> \"value\"";
+        syntax 		= 	"<vector> \"value\"";
 }
 
 COMMAND_RESULT CommandVExist::Handle(User* user, const Params& parameters)
@@ -32,7 +32,7 @@ CommandVPos::CommandVPos(Module* Creator) : Command(Creator, "VPOS", 2, 2)
 {
         check_key       =       0;
         group 		= 	'v';
-        syntax 		= 	"<key> <value>";
+        syntax 		= 	"<vector> <value>";
 }
 
 COMMAND_RESULT CommandVPos::Handle(User* user, const Params& parameters)
